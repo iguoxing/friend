@@ -1,0 +1,109 @@
+/* pages/search/search.wxss */
+page{
+  background: #f2f2f2;
+}
+
+/*头部-搜索框  */
+.page_header{
+  height: 120rpx;
+  width: 100%;
+  z-index: 9;
+  /*position: fixed;
+  top: 0;*/
+  background: #f2f2f2;
+}
+.to_search{
+  height: 80rpx;
+  width: 95%;
+  display: block;
+  float: left;
+  border-radius: 10px;
+  margin-top: 20rpx;
+  margin-left: 2.5%;
+  background: #fff;
+}
+
+.search_icon{
+  height: 50rpx;
+  width: 50rpx;
+  float: right;
+  margin-top: 15rpx;
+  margin-right: 16rpx;
+}
+
+.to_search_center input{
+  font-size: 30rpx;
+  color: #999;
+  line-height: 50rpx;
+  height: 50rpx;
+  float: left;
+  color: #b2b2b2;
+  width: 85%;
+  margin-left: 10rpx;
+  margin-top: 15rpx;
+}
+.search_button{
+  width: 15%;
+  height: 53rpx;
+  display: inline-block;
+  font-size: 28rpx !important;
+  line-height: 53rpx !important;
+  padding: 0 !important;
+  float: right;
+  margin-top: 15rpx;
+  margin-right: 3.3%;
+}
+
+
+.goods_list{
+  background: #f2f2f2;
+  float: left;
+  width: 100%;
+  border-top: 1px solid #efefef;
+  margin-bottom: 20rpx;
+}
+
+.goods_one{
+  width: 44%;
+  margin: 30rpx 0 0 4%;
+  float: left;
+  background: #fff;
+}
+.goods_img{
+  height: 340rpx;
+  width: 100%;
+}
+.cart_img{
+  height: 65rpx;
+  width: 65rpx;
+  border-radius: 50%;
+  display: inline-block;
+  float: right;
+  margin-right: 2px;
+}
+
+.goods_title{
+  font-size: 9pt;
+  display: block;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+}
+
+.shop_price{
+  font-size: 9pt;
+  display: inline-block;
+  margin-left: 20rpx;
+  color: red;
+  margin-top: 20rpx;
+}
+.colorred{
+  color: #e95a7a;
+}
+.tis{
+  height: 40px;
+  background: #f2f2f2;
+  font-size: 14px;
+  line-height: 40px;
+  padding-left: 2.5%;
+  width: 100%;
+}

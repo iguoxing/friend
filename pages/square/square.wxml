@@ -1,0 +1,67 @@
+<!--pages/square/square.wxml-->
+<view class="container" style="background:#fff; padding: 0 0 1px 0;">
+  <view class="fabu_s">
+      <view class='form'>
+        <input type="text" bindinput='bindinput_seach' class="input_text" placeholder="搜索产品名看他们说"></input>
+        <view bindtap='get_list' class="input_submit">搜索</view>
+      </view>
+      <navigator url='/pages/user/my_tuan/my_tuan?type_id=1' class="fabu">发布</navigator>
+  </view>
+
+  <view class='square_list_body'>
+
+  <view wx:if="{{list.length > 0}}" class="square_list">
+
+  <block wx:for="{{list}}" wx:key="list">
+  <view class='square_list_dl'>
+    <view class='square_list_dt'>
+      <image src="{{item.headimg}}"></image>
+      <view>{{item.wx_name}}</view>
+    </view>
+    <view class='square_list_dd'>
+      <view class='square_list_p'>{{item.add_time}}</view>
+      <view class="mess square_list_p">{{item.square}}</view>
+      <view class="img square_list_p">
+        <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <block wx:for="{{item.gallery}}" wx:key="gallery" wx:for-item="gallery">
+          <image src="{{gallery.thumb_url}}"></image>
+        </block>
+        </navigator>
+      </view>
+      <view class="gdname square_list_p">
+        <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>{{item.goods_name}}</navigator>
+      </view>
+      <view class="gray square_list_p">已有 {{item.buy_nums}} 位参团购买该产品</view>
+
+      <view class="square_g_core">
+        <view class="square_g_core_img">
+          <image src="https://lht.she985.com/themes/haohai2017/images/tuan_g_core-4935ae4c83.png"></image>
+        </view>
+
+        <view class="square_g_price">
+          <text>¥{{item.team_price}}</text>
+        </view>
+
+        <navigator url='/pages/share_tuan2/share_tuan?team_sign={{item.team_id}}'>
+          <view class="square_g_btn">
+            <view class='square_g_btn_img1'></view>
+            <text>缺{{item.need}}人</text>
+            去参团<view class='square_g_btn_img2'></view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  </block>
+
+  </view>
+
+  </view>
+
+  <view wx:if="{{list.length == 0}}" class="nothing">
+      <image src='/static/images/icon/no_data.png'></image>
+      <text>还没有小伙伴发布哦</text>
+  </view>
+
+</view>

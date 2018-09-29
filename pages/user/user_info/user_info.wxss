@@ -1,0 +1,66 @@
+/* pages/user/user_info/user_info.wxss */
+.border_h3{
+    height: 40rpx;
+    background: #f2f2f2;
+    width: 100%;
+    clear: both;
+    display: block;
+}
+.tis{
+  width: 80%;
+  margin: 20rpx auto;
+  background:#17b2e0;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  height: 30px;
+  display: none;
+}
+
+.menu_text{
+    font-size: 13pt;
+    float: left;
+    color: #353535;
+    line-height: 80rpx;
+}
+.menu_headimg{
+    height: 100rpx;
+    width: 94%;
+    display: block;
+    margin: 0 auto;
+    border-bottom:1px solid #f2f2f2;
+}
+.menu_headimg text{
+    line-height: 100rpx;
+}
+.menu_headimg image{
+    height: 80rpx;
+    width: 80rpx;
+    float: right;
+    margin-top: 10rpx;
+}
+
+.menu{
+    height: 80rpx;
+    width: 94%;
+    display: block;
+    margin: 0 auto;
+    border-bottom:1px solid #f2f2f2;
+}
+.menu_value{
+    color: #b2b2b2;
+    line-height: 80rpx;
+    float: right;
+}
+.menu_value2{
+    color: #b2b2b2;
+    line-height: 80rpx;
+    height: 80rpx;
+    width: 80%;
+    float: right;
+    border-bottom: 1px solid #17b2e0;
+}
+
+.botton{
+    width: 94%;
+}

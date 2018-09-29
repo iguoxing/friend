@@ -1,0 +1,34 @@
+<!--pages/stores/stores.wxml-->
+<scroll-view scroll-x="true" scroll-with-animation="true" class='nav_fixed_wrap'>
+    <view class="nav_fixed_catgoods" style='width:{{Hangye.length * 120 + 120}}rpx' >
+        <text bindtap='change_Hangye' data-hangye_id='0' class="fixed_nav_item_catgoods">
+            <text class="{{hangye_id == 0 ? 'nav_cur_cat':''}}">全部</text>
+        </text>
+
+        <block wx:for="{{Hangye}}" wx:key="Hangye">
+          <text bindtap='change_Hangye' data-hangye_id='{{item.id}}' class="fixed_nav_item_catgoods">
+              <text class="{{hangye_id == item.id ? 'nav_cur_cat':''}}">{{item.name}}</text>
+          </text>
+        </block>
+
+    </view>
+</scroll-view>
+
+<view class="store_list">
+
+    <block wx:if="{{stores.length > 0}}" wx:for="{{stores}}" wx:key="stores">
+      <view class="grst-block">
+          <navigator url='/pages/store_info/store_info?id={{item.suppliers_id}}'>
+            <image class='grst-logo' src="{{item.supp_logo == '' ? 'http://lht.she985.com/images/store_logo.jpg':item.supp_logo}}"></image>
+          </navigator>
+          <view class="grst-detail">
+              <text class='text_h3'>{{item.suppliers_name}}</text>
+              <text class='text_p'> 中国{{item.address}}</text>
+              <text class='text_p'>商品：{{item.goods_num}}　销量：{{item.sales_num}}</text>
+              <navigator class='in' url='/pages/store_info/store_info?id={{item.suppliers_id}}'>进入店铺</navigator>
+          </view>
+      </view>
+    </block>
+    <view class='no_stores' wx:if="{{stores.length <= 0}}">{{no_stores}}</view>
+
+</view>

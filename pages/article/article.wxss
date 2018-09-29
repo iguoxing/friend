@@ -1,0 +1,90 @@
+/* pages/category/category.wxss */
+.page_header{
+  height: 80rpx;
+  width: 100%;
+  background: #efefef;
+  border-bottom: 1px solid #dad9dd;
+  border-top: 1px solid #dad9dd;
+}
+.to_search{
+  height: 50rpx;
+  width: 75%;
+  display: inline-block;
+  margin-left: 3.3%;
+  background: #fff;
+  margin-top: 15rpx;
+  border-radius: 5px;
+  border: 1px solid #e7e8ec;
+}
+
+.search_icon{
+    height: 30rpx;
+    width: 30rpx;
+    margin-left: 10rpx;
+    display: inline-block;
+    vertical-align:middle;
+    float: left;
+    margin-top: 10rpx;
+}
+.to_search_center_text{
+  color: #b0b0b0;
+  line-height: 50rpx;
+  vertical-align:middle;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+}
+.to_search_center input{
+  width: 91%;
+  float: left;
+  line-height: 50rpx;
+  vertical-align:middle;
+  margin-left: 10rpx;
+  font-size: 28rpx;
+}
+.search_button{
+  width: 15%;
+  height: 53rpx;
+  display: inline-block;
+  font-size: 28rpx !important;
+  margin-left: 3.3%;
+  line-height: 53rpx !important;
+  padding: 0 !important;
+}
+
+.goods_list{
+  width: 100%;
+  display: block;
+  background:#efefef;
+  padding: 20rpx 0;
+}
+
+.article_one{
+  height: 100rpx;
+  background: #fff;
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+
+}
+
+.article_body{
+  height: 80rpx;
+  border-bottom:1px solid #f2f2f2;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+
+.article_body text{
+  font-size: 30rpx;
+  vertical-align: middle;
+  line-height: 100rpx;
+}
+.article_body image{
+  width: 25rpx;
+  height: 25rpx;
+  vertical-align: middle;
+  float: right;
+  margin-top: 40rpx;
+  margin-right: 10rpx;
+}

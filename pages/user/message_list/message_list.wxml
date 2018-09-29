@@ -1,0 +1,42 @@
+<view class="body">
+  <view id="tis" class="tis" style="{{tisshow}}">
+  {{tis}}
+  </view>
+  <form bindsubmit="send_message">
+    <view class="message_body">
+
+        <view class="message_title">
+          <input name="message_title" placeholder="请输入留言主题..." />
+        </view>
+
+        <textarea class="message_text" name="message_text" placeholder="请输入留言内容..." />
+
+        <radio-group class="message_type_radio" bindchange="change_message_type">
+            <radio value="0" checked="true" />留言
+            <radio value="1" />投诉
+            <radio value="2" />询问
+            <radio value="3" />售后
+            <radio value="4" />求购
+        </radio-group>
+
+    </view>
+    <button type="warn" loading="{{submit_load}}" form-type="submit" class="message_submit_botton">提交{{message_type_text}}</button>
+  </form>
+
+<scroll-view scroll-y="true" scroll-left="1" class="scroll_view" bindscrolltolower="load_list">
+  <block wx:for="{{feedback_list}}" wx:key="promoter_list">
+    <view class="list">
+      <text class="title">{{item.msg_type}}:</text>
+      <text class="msg_title">{{item.msg_title}}</text>
+      <text class="time2">{{item.msg_time}}</text>
+      <text class="desc">{{item.msg_content}}</text>
+    </view>
+  </block>
+
+  <view class="load_footer">
+  {{load_footer}}
+  </view>
+
+</scroll-view>
+
+</view>

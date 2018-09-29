@@ -1,0 +1,219 @@
+/**user.wxss**/
+page{
+  background: #f2f2f2;
+}
+.my{
+  width: 100%;
+  height: 260rpx;
+  background: url('https://lht.she985.com/xcx/images/user_page_bg.jpg') no-repeat 0 0;
+  background-size: 100% 100%;
+}
+.my_head_pic{
+  float: left;
+  height: 120rpx;
+  width: 120rpx;
+  margin: 30rpx;
+}
+.my_head_pic image{
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff;
+  height: 120rpx;
+  width: 120rpx;
+}
+.my_head_info{
+  float: left;
+  color: #fff;
+  padding: 30rpx 10rpx;
+}
+.user_name{
+  font-size: 35rpx;
+  line-height: 30rpx;
+  color: #555;
+  display: block;
+  margin-bottom: 30rpx;
+}
+.user_money{
+  font-size: 24rpx;
+  line-height: 30rpx;
+  color: #555;
+  display: block;
+}
+.my_nav{
+  position: absolute;
+  top: 180rpx;
+  background: #fff; 
+  height: 80rpx;
+  width: 100%;
+  float: left;
+  opacity: 0.7;
+}
+.my_nav view{
+  float: left;
+  width: 50%;
+  height: 80rpx;
+  color: #555;
+  font-size: 30rpx;
+  line-height: 80rpx;
+}
+.my_nav image{
+  width: 40rpx;
+  height: 40rpx;
+  float: left;
+  margin-top: 20rpx;
+  display: inline-block;
+  margin-left: 35%;
+  margin-right: 4rpx;
+}
+
+/*订单类别  */
+.nav_order{
+  background: #fff;
+}
+.nav_item_order_hd{
+  height: 100rpx;
+  width: 100%;
+  border-bottom: 1px solid #f2f2f2;
+}
+.my_order_title{
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #4a4a4a;
+  padding-left: 10px;
+  float: left;
+  z-index: 1;
+  font-weight: 500;
+  display: inline-block;
+}
+.my_order_all{
+  float: right;
+  font-size: 24rpx;
+  line-height: 100rpx;
+  display: inline-block;
+  padding-right: 28rpx;
+  color: #999;
+}
+.my_order_all image{
+  width: 16rpx;
+  height: 25rpx;
+  display: inline-block;
+  margin-top: 0rpx;
+  margin-left: 10rpx;
+}
+
+.nav_item_bd{
+  padding: 3px 0 5px;
+}
+.nav_item_bd navigator{
+  color: #4a4a4a;
+  display: inline-block;
+  font-size: 24rpx;
+  position: relative;
+  text-align: center;
+  width: 20%;
+}
+.nav_item_order_img{
+  background-image: url('https://lht.she985.com/themes/haohai2017/images/personal_sprite.png');
+  background-repeat: no-repeat;
+  background-size: 133.33333px 133.33333px;
+  height: 44rpx;
+  width: 46rpx;
+  margin: 20rpx auto 8rpx;
+}
+.order_unpay{
+  background-position: -48rpx 0;
+  width: 48rpx;
+}
+.order_unhexiao{
+  background-position: 0 -48rpx;
+  width: 48rpx;
+}
+.order_unsend{
+  background-position: 0 0;
+  height: 44rpx;
+}
+.order_unreceived{
+  background-position: -100rpx -2rpx;
+  height: 40rpx;
+}
+.order_unevaluated{
+  background-position: -150rpx 0;
+  height: 42rpx;
+  width: 44rpx;
+}
+
+/*个人中心菜单  */
+.nav_list{
+  margin-top: 20rpx;
+}
+.nav_one{
+  width: 25%;
+  height: 130rpx;
+  float: left;
+  background: #fff;
+  border-bottom: 1px solid #f2f2f2;
+  box-sizing: border-box;
+}
+.nav_one image{
+  height: 60rpx;
+  width: 60rpx;
+  display: block;
+  margin: 0 auto;
+  margin-top: 16rpx;
+}
+.nav_one text{
+  display: block;
+  font-size: 24rpx;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 10rpx;
+}
+.border_right{
+  border-right: 1px solid #f2f2f2;
+}
+
+/*最底部导航  */
+.nav_sug{
+  clear: both;
+  height: 80rpx;
+  display: block;
+  background: #fff;
+  padding: 0 10rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.nav_sug .nav_sug_img{
+  height: 60rpx;
+  width: 60rpx;
+  float: left;
+  margin-top: 10rpx;
+  margin-left: 8%;
+}
+.nav_sug text{
+  float: left;
+  display: inline-block;
+  padding-left: 80rpx;
+  line-height: 80rpx;
+  color: #4a4a4a;
+  font-size: 24rpx;
+}
+.nav_sug .nav_sug_personal_arrow{
+  width: 20rpx;
+  height: 20rpx;
+  margin-top: 30rpx;
+  float: right;
+  margin-right: 6%;
+}
+
+.nemu_contact{
+  padding: 0;
+  margin: 0;
+  overflow:visible;
+  position: initial;
+  border-radius:0px;
+}
+.nav_sug button::after{
+  border: none;
+  width: 0;
+  height: 0;
+  background: red;
+}

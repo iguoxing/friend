@@ -1,0 +1,194 @@
+.tis{
+  width: 95%;
+  margin: 0;
+  background: #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  height: 0px;
+  font-size: 11pt;
+  margin: 20rpx auto;
+  background:#17b2e0;
+}
+.user_default_address{
+    background: #5d6b85;
+    height: 130rpx;
+    color: #fff;
+}
+.left_red{
+    background: #17b2e0;
+    width: 5px;
+    height: 130rpx;
+    position: fixed;
+}
+.user_default_address_name{
+    padding: 10rpx 0 10rpx 20rpx;
+    display: inline-block;
+    font-size: 13pt;
+    float: left;
+}
+.user_default_address_mobile{
+    display: inline-block;
+    font-size: 13pt;
+    float: right;
+    padding: 10rpx 20rpx 10rpx 0rpx;
+}
+.user_default_address_address{
+    font-size: 9pt;
+    clear: both;
+    display: block;
+    padding: 5rpx 0 10rpx 20rpx;
+}
+.address_edit{
+    height: 80rpx;
+    width: 100%;
+    background: #fff;
+}
+.borderh4{
+    clear: both;
+    display: block;
+    height: 10rpx;
+    width: 100%;
+    background: #f2f2f2;
+}
+.address_edit image{
+    height: 50rpx;
+    width: 50rpx;
+    margin: 15rpx 0 0 10rpx;
+    float: left;
+}
+.back_cart_text{
+    font-size: 11pt;
+    line-height: 80rpx;
+    float: left;
+    display: inline-block;
+}
+.back_cart_text_right{
+    font-size: 11pt;
+    line-height: 80rpx;
+    float: right;
+    margin-right:30rpx;
+    display: inline-block;
+    color: #b2b2b2;
+}
+.cart_goods_image{
+    height: 60px;
+    width: 60px;
+    display: block;
+    margin-right: 2%;
+    float: left;
+    overflow: hidden;
+}
+.cart_goods{
+    height: 61px;
+    width: 96%;
+    display: block;
+    padding: 5px;
+}
+.goods_one_text{
+    font-size: 9pt;
+}
+.goods_name{
+    display: block;
+    padding: 5px;
+    overflow: hidden;
+    width: 70%;
+    text-overflow:ellipsis; 
+    white-space:nowrap;
+}
+.goods_price{
+    padding: 5px;
+}
+.goods_attr{
+    padding-left: 5px;
+    overflow: hidden;
+    width: 60%;
+    text-overflow:ellipsis; 
+    white-space:nowrap;
+    color: #b2b2b2;
+    display: block;
+}
+.shipping{
+    height: 30rpx;
+    font-size: 13pt;
+    line-height: 30rpx;
+    padding: 10px;
+}
+.order_note{
+    height: 30rpx;
+    font-size: 11pt;
+    line-height: 30rpx;
+    padding: 20rpx;
+    display: inline-block;
+}
+.order_note_textarea{
+    border-bottom: 1px solid #b2b2b2;
+    margin-left: 20rpx;
+    width: 95%;
+    display: inline-block;
+}
+.pay_type{
+    height: 80rpx;
+}
+.pay_type_title{
+    font-size: 11pt;
+    line-height: 80rpx;
+    margin-left:10rpx; 
+}
+.pay_left_red{
+    float: left;
+    height: 80rpx;
+    width: 5px;
+    background: #17b2e0;
+}
+.pay_radio_group{
+    font-size: 11pt;
+    display: inline-block;
+    margin-left: 20px;
+}
+.send_order_button{
+    position: fixed;
+    bottom: 0px;
+    border-radius:0;
+    width: 100%;
+    background: #17b2e0 !important;
+}
+.pay_radio2{
+    display: none;
+}
+.pay_radio{
+    border: 1px #b2b2b2 solid;
+    padding: 10rpx;
+    margin-right:40rpx;
+    border-radius: 5px;
+    background: #f2f2f2;
+}
+.pay_radio_select{
+    background: #17b2e0;
+    border: 1px #17b2e0 solid;
+    color: #fff;
+}
+.order_total{
+    height: 100rpx;
+    width: 100%;
+    background: #f2f2f2;
+    font-size: 11pt;
+    display: block;
+}
+.order_total_text{
+    float: right;
+    display: block;
+    line-height: 50rpx;
+    padding-right: 20rpx;
+}
+.order_total_text2{
+    float: right;
+    font-size: 11pt;
+    display: block;
+    clear: both;
+    line-height: 50rpx;
+    padding-right: 20rpx;
+}
+.colorred{
+    color: #17b2e0;
+}

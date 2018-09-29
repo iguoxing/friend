@@ -1,0 +1,177 @@
+<!--index.wxml-->
+<scroll-view scroll-x="true" class="cat_list">
+  <view class="cat_list-navbar" style="width:{{cat_list.length*132+132}}rpx;">
+    <view id="cat_0" data-cat_id="0" class="cat_list_item {{0 == catindex ? 'cat_list_item_on' : ''}}" bindtap="cat_tabClick">
+        <view class="cat_name">首页</view>
+    </view>
+    <block wx:for-items="{{cat_list}}" wx:for-item="item" wx:key="cat_list">
+      <view id="cat_{{item.cat_id}}" data-cat_id="{{item.cat_id}}" class="cat_list_item {{item.cat_id == catindex ? 'cat_list_item_on' : ''}}" bindtap="cat_tabClick">
+        <view class="cat_name">{{item.cat_name}}</view>
+      </view>
+    </block>
+
+  </view>
+</scroll-view>
+
+
+<swiper style='width:100%;height:360rpx;' indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" indicator-color="#b2b2b2" indicator-active-color="#fff" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="swiper">
+  <navigator open-type="{{item.url_type == 'goods' ? 'navigate':'reLaunch'}}" url="{{item.url_type == 'goods' ? '/pages/goods/goods?goods_id='+item.id : '/pages/category/category?cat_id='+item.id}}">
+    <swiper-item style='width:100%;height:360rpx;'>
+      <image src="{{item.src}}" style='width:100%;height:360rpx;' />
+    </swiper-item>
+  </navigator>
+  </block>
+</swiper>
+
+<view class='seach_view'>
+  <view class='address_name'>
+    <image src='/static/images/icon/addres_index.png'></image>
+    <text>{{select_address}}</text>
+  </view>
+  <view class='seach_input'>
+    <input confirm-type='search' bindconfirm='to_search' bindinput="searchinput" maxlength="-1" type="text" placeholder="请输入查找的商品"></input>
+    <image bindtap='to_search' src='/static/images/icon/top_s.png'></image>
+  </view>
+</view>
+<view class='news'>
+  <image src='/static/images/icon/sticky.png'></image>
+  <text class='news_fgx'>|</text>
+
+  <swiper circular="true" class='top_new_body_swiper' autoplay="true" vertical="true" duration="{{duration}}">
+    <block wx:for="{{news}}" wx:key="news">
+      <swiper-item class="top_new_body_swiper_item">
+        <view class='border_news'></view>
+        <navigator url='/pages/article_info/article_info?article_id={{item.article_id}}'>
+          <view class='news_one'>
+            <text>{{item.title}}</text>
+          </view>
+        </navigator>
+      </swiper-item>
+    </block>
+  </swiper>
+
+</view>
+
+<view wx:if="{{miao_goods.length > 0}}" class='mod_tit'>
+  <view class="line"></view>
+  <text class='mod_h4'>限时秒杀</text>
+  <navigator url='/pages/spike/spike' class='mod_navigator'>查看更多 ></navigator>
+</view>
+
+<view class='good_list'>
+  <block wx:for="{{miao_goods}}" wx:key="miao_goods">
+    <view class='list_B'>
+      <navigator url='/pages/goods/goods?goods_id={{item.id}}'>
+        <image mode='widthFix' class='good_list_images' src='{{item.xcx_goods_img}}'></image>
+        <view class='gmt_end_time_f'>
+          <view class='gmt_end_time'>{{item.gmt_end_time_text}}</view>
+        </view>
+      </navigator>
+      <text class="tit">{{item.name}}</text>
+      <text class="price">¥<text class="shop_price">{{item.promote_price}}</text></text>
+      <view class="mai">{{item.price_discount}}折</view>
+    </view>
+  </block>
+</view>
+
+<view class='mod_tit' wx:if="{{buying_goods.length>0}}">
+  <view class="line"></view>
+  <text class='mod_h4'>正在拼团</text>
+  <navigator url='/pages/category_info/category_info?category_id=0&type=tuan' class='mod_navigator'>查看更多 ></navigator>
+</view>
+
+<view class='good_list'>
+  <block wx:for="{{buying_goods}}" wx:key="buying_goods" wx:if="{{buying_goods.length==1||buying_goods.length%2==0}}">
+    <view class='list_B'>
+      <navigator class='list-nav' url='/pages/goods/goods?goods_id={{item.goods_info[0].goods_id}}'>
+        <image mode='widthFix' class='good_list_images' src='{{item.goods_info[0].goods_thumb}}'></image>
+        <view class='gmt_end_time_f'>
+          <view class='gmt_end_time'>{{item.s_miao_text}}</view>
+        </view>
+        <text class='user-num' wx:if="item.differ_num">缺{{item.differ_num}}人</text>
+      </navigator>
+      <text class="tit two">{{item.goods_info[0].goods_name}}</text>
+      <text class="price">¥<text class="shop_price">{{item.goods_info[0].team_price}}</text></text>
+      <view class='good-img-list'>
+        <image wx:for="{{item.team_mem}}" wx:if="{{index<5}}" wx:key="user_imgs" class="head-image {{index==0?'first-head':''}}" src='{{item.headimg}}'></image>
+      </view> 
+    </view>
+  </block>
+  <block wx:for="{{buying_goods}}" wx:key="buying_goods" wx:if="{{buying_goods.length%2==1}}">
+    <view class='list_B' wx:if="{{index+1<buying_goods.length}}">
+      <navigator class='list-nav' url='/pages/goods/goods?goods_id={{item.goods_info[0].goods_id}}'>
+        <image mode='widthFix' class='good_list_images' src='{{item.goods_info[0].goods_thumb}}'></image>
+        <view class='gmt_end_time_f'>
+          <view class='gmt_end_time'>{{item.s_miao_text}}</view>
+        </view>
+        <text class='user-num' wx:if="item.differ_num">缺{{item.differ_num}}人</text>
+      </navigator>
+      <text class="tit two">{{item.goods_info[0].goods_name}}</text>
+      <text class="price">¥<text class="shop_price">{{item.goods_info[0].team_price}}</text></text>
+      <!-- 默认最多展示5个图片 -->
+      <view class='good-img-list'>
+        <image wx:for="{{item.team_mem}}" wx:if="{{index<5}}" wx:key="user_imgs" class="head-image {{index==0?'first-head':''}}" src='{{item.headimg}}'></image>
+      </view> 
+    </view>
+  </block>
+</view>
+
+<view class='tuan_list'>
+
+  <block wx:for="{{best_list}}" wx:key="best_list">
+  <view class='tuan_g'>
+
+    <view class='tuan_g_img'>
+      <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <image mode="widthFix" src='{{item.little_img}}'></image>
+      </navigator>
+    </view>
+
+    <view class="tuan_g_info">
+      <text class="tuan_g_name">{{item.goods_name}}</text>
+    </view>
+
+    <view class="tuan_g_core">
+      <image class='tuan_g_core_image' src='/static/images/icon/people.png'></image>
+      <text class="tuan_g_num">{{item.team_num}}人团</text>
+      <view class="tuan_fgx"></view>
+      <view class="tuan_g_price"><text class='tuan_g_price_fuhao'>¥</text>{{item.team_price}}</view>
+      <text class="tuan_g_mprice"><text>￥</text>{{item.market_price}}</text>
+      <navigator class="tuan_g_btn" url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <view>去开团 ></view>
+      </navigator>
+    </view>
+
+  </view>
+  </block>
+
+</view>
+
+<view wx:if="{{mall_goods_list.length > 0}}" class='mod_tit'>
+  <view class="line"></view>
+  <text class='mod_h4'>精品商城</text>
+  <navigator url='/pages/category_info/category_info?category_id=0&type=one' class='mod_navigator'>查看更多 ></navigator>
+</view>
+
+<view class='good_list'>
+  <block wx:for="{{mall_goods_list}}" wx:key="mall_goods_list">
+    <view class='list_B'>
+      <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <image mode='widthFix' class='good_list_images' src='{{item.goods_thumb}}'></image>
+      </navigator>
+      <text class="tit">{{item.goods_name}}</text>
+      <text class="price">¥<text class="shop_price">{{item.shop_price}}</text></text>
+      <view class="mai">买</view>
+    </view>
+  </block>
+</view>
+
+<view class='contact_button_view'>
+
+  <button class='user_contact_button' open-type="contact">
+    <image src='/static/images/icon/icon-service.png'></image>
+  </button>
+
+</view>

@@ -1,0 +1,57 @@
+.tis{
+  width: 100%;
+  background: #17b2e0;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  height: 60rpx;
+  font-size: 30rpx;
+  display: none;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+.body{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+}
+.titlediv{
+    font-size: 11pt;
+    margin-top: 10px;
+    display: block;
+    border-bottom: 1px solid #b2b2b2;
+}
+.listdiv{
+    font-size: 10pt;
+    margin-top: 5px;
+}
+
+.listdiv text{
+    width: 33%;
+    display: inline-block;
+    border: 1px solid #f2f2f2;
+    margin: -1px;
+    text-align: center;
+    height: 50rpx;
+    line-height: 50rpx;
+
+}
+.listdiv .text2{
+    border-top: none;
+
+}
+.h1{
+    height: 10px;
+    display: block;
+}
+.link_text{
+    font-size: 10pt;
+}
+.no_jilu{
+    background: #b2b2b2;
+    height: 50rpx;
+    line-height: 50rpx;
+    text-align: center;
+    width: 99%;
+    margin-top: 5px;
+}

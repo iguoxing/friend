@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "老友记海淘转运",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#e95a7a",
+  "usingComponents": {
+    "lht-block": "../../components/lht-block/index",
+    "van-badge": "../../components/badge/index",
+    "van-badge-group": "../../components/badge-group/index"
+  }
+}

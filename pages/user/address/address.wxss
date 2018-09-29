@@ -1,0 +1,78 @@
+.address{
+
+}
+.add_name{
+  display: inline-block;
+  float: left;
+  font-size: 11pt;
+  margin-left:20rpx;
+}
+.add_mobile{
+  display: inline-block;
+  float: right;
+  font-size: 11pt;
+  margin-right:20rpx;
+}
+.add_address{
+  display: block;
+  clear: both;
+  font-size: 9pt;
+  padding-left: 20rpx;
+  padding-bottom: 20rpx;
+  border-bottom:1px solid #f2f2f2; 
+}
+.edit_menu view{
+  font-size: 11pt;
+  display: inline-block;
+}
+.edit_default{
+  padding: 20rpx 100rpx 20rpx 20rpx;
+  float: left;
+}
+.edit_edit{
+  padding: 20rpx 20rpx 20rpx 20rpx;
+  float: right;
+}
+.borderh4{
+  height: 20rpx;
+  background: #f2f2f2;
+  clear: both;
+}
+.footer2{
+  text-align: center;
+  background: #e95a7a;
+  line-height: 100rpx;
+  color: #fff;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+}
+.no_address{
+  height: 100rpx;
+  width: 100%;
+  text-align: center;
+  display: block;
+  line-height: 100rpx;
+  background: #f2f2f2;
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.borderh3{
+  display: block;
+  height: 100rpx;
+  width: 100%;
+  clear: both;
+}
+.flow_tis{
+  height: 100rpx;
+  width: 100%;
+  display: none;
+  font-size: 9pt;
+  line-height: 100rpx;
+  background: #09BB07;
+}
+.flow_tis_text{
+  text-align: center;
+  display: block;
+  color: #f2f2f2;
+}

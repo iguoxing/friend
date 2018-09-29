@@ -1,0 +1,32 @@
+/* pages/select_address/select_address.wxss */
+.body{
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.select_title{
+  height: 80rpx;
+  display: block;
+  clear: both;
+  width: 100%;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  border-bottom: 1px solid #f2f2f2;
+}
+.select_one{
+  float: left;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+  border: 1px solid #f2f2f2;
+  padding: 0rpx 15rpx;
+  border-radius: 6px;
+  font-size: 30rpx;
+  color: #b2b2b2;
+  margin-top: 10rpx;
+  margin-left: 10rpx;
+}
+.select_one_tab{
+  color: #fff;
+  background: #80b8f9;
+}

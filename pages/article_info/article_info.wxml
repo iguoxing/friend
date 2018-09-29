@@ -1,0 +1,14 @@
+<view class="detailbody">
+  <view id="tis" class="tis" style="{{tisshow}}">
+    {{tis}}
+  </view>
+
+  <view class="ht_title">{{ht_info.title}}</view>
+  <view class="ht_class">{{ht_info.class}} {{ht_info.add_time}}</view>
+
+  <block class="ht_block">
+    <rich-text class='rich_class' nodes="{{ht_info.content}}"></rich-text>
+  </block>
+  
+</view>
+<view class="block1h"></view>

@@ -1,0 +1,22 @@
+<!--pages/select_address/select_address.wxml-->
+<view class='body'>
+  <view class='select_title'>
+    <text>请选择省份</text>
+  </view>
+  <view class='select_body'>
+    <view class="select_one {{select_one_tab == -1 ? 'select_one_tab':''}}" bindtap='select_province' data-id='-1'>全国</view>
+    <block wx:for="{{province_list}}" wx:key="province_list">
+      <view class="select_one {{select_one_tab == index ? 'select_one_tab':''}}" bindtap='select_province' data-id='{{index}}'>{{item}}</view>      
+    </block>
+  </view>
+
+  <view class='select_title'>
+    <text>请选择省份</text>
+  </view>
+
+  <view class='select_body'>
+    <block wx:for="{{city_list}}" wx:key="city_list">
+      <view class="select_one" bindtap='select_city' data-name='{{item}}'>{{item}}</view>
+    </block>
+  </view>
+</view>

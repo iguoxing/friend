@@ -1,0 +1,9 @@
+<!--pages/user_login/user_login.wxml-->
+<image mode="widthFix" class='user_login' src='{{login_bg}}'></image>
+<view class='fff'>
+  <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class='user_contact_button'>
+    <image class='user_login_button' src='{{login_btton}}'></image>
+  </button>
+  <view wx:else>请升级微信版本</view>
+</view>
+ <image mode="widthFix" class='user_logn_top' src='/static/images/icon/user_login_top.png'></image>

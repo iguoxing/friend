@@ -1,0 +1,62 @@
+<!--pages/user/my_tuan/my_tuan.wxml-->
+<view class='container'>
+  <view class="nav_fixed nav_spike">
+    <text bindtap='change_type_id' data-type_id='0' class="{{type_id == 0 ? 'cur':''}}">全部</text>
+    <text bindtap='change_type_id' data-type_id='1' class="{{type_id == 1 ? 'cur':''}}">组团中</text>
+    <text bindtap='change_type_id' data-type_id='2' class="{{type_id == 2 ? 'cur':''}}">已成团</text>
+    <text bindtap='change_type_id' data-type_id='3' class="{{type_id == 3 ? 'cur':''}}">组团失败</text>
+  </view>
+</view>
+<view class='nav_zhanwei'></view>
+
+<view wx:if="{{order_list.length > 0}}" class='mt_order'>
+
+  <block wx:for="{{order_list}}" wx:key="order_list">
+
+    <block wx:for="{{item.goods_list}}" wx:key="goods_list" wx:for-item="goods">
+      <view class='order_one'>
+        <view class="mt_g">
+          <view class="mt_g_img">
+            <navigator url='/pages/goods/goods?goods_id={{goods.goods_id}}'>
+              <image src="{{goods.goods_thumb}}"></image>
+            </navigator>
+          </view>
+          <view class="mt_g_info">
+            <navigator url='/pages/goods/goods?goods_id={{goods.goods_id}}'>
+              <text class="mt_g_name">{{goods.goods_name}}</text>
+            </navigator>
+            <text class="mt_g_price">
+                <text class='price_red_p'><text class='price_red'>¥{{goods.team_price}}</text>/{{goods.team_num}}人团</text>
+            <text class='price_span'>{{item.team_status_text}}</text>
+            </text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view class="mt_status">
+      <navigator url='/pages/user/order_detail/order_detail?order_id={{item.order_id}}'>订单详情</navigator>
+      <navigator url='/pages/share_tuan/share_tuan?team_sign={{item.team_sign}}'>团详情</navigator>
+      <text bindtap='show_square' data-order-id='{{item.order_id}}' wx:if="{{item.team_status == 1}}">发布</text>
+    </view>
+  </block>
+
+</view>
+<view wx:else class='nothing'>
+  <image src='/static/images/icon/no_data.png'></image>
+  <text>您还没有此类拼团订单哦,赶快去火拼吧！</text>
+</view>
+<view wx:if="{{common_bg == 1}}" class="common-bg"></view>
+
+<form bindsubmit="submitCommont">
+  <view wx:if="{{common_bg == 1}}" class="common">
+    <text bindtap='show_square' data-order-id="-1" class="close"></text>
+    <view class="common-title">发布广场</view>
+    <view class="common-content">
+      <view class='textarea_class'>
+        <textarea auto-focus="true" placeholder="发布内容" name="comment" auto-focus></textarea>
+      </view>
+      <button form-type="submit" hover-class="none" id='btn-square'>发布</button>
+    </view>
+  </view>
+</form>

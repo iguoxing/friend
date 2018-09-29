@@ -1,0 +1,85 @@
+.addressmone{
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 10rpx;
+}
+.ul{
+  width: 90%;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.title{
+  display: block;
+  float: left;
+  width: 22%;
+  font-size: 14px;
+  line-height: 35px;
+  color: #666;
+}
+.cont{
+  display: block;
+  float: right;
+  width: 75%;
+  text-align: left;
+}
+.continput{
+  display: block;
+  float: left;
+  width: 98%;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #333;
+  /*line-height: 35px;*/
+  text-indent: 10px;
+  flex: 1;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 0;
+}
+.continput2{
+  
+  display: block;
+  float: left;
+  width: 30%;
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  color: #333;
+  line-height: 60rpx;
+  flex: 1;
+  color: #b2b2b2;
+  text-align: center;
+  border-radius: 0;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+}
+.red{
+  color: #e95a7a;
+}
+.save_button{
+  margin-top: 20rpx;
+  background: #e95a7a !important;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.err_tis{
+  font-size: 11pt;
+  text-align: center;
+  line-height: 100rpx;
+  height: 100rpx;
+  background: #b2b2b2;
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  display: none;
+}
+.selector_text{
+  display: block;
+}

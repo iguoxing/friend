@@ -1,0 +1,79 @@
+<!--pages/show_news/show_news.wxml-->
+<view class="body">
+  <view id="tis" class="tis" style="{{tisshow}}">
+  {{tis}}
+  </view>
+
+  <view class="order_static">
+    <image src="/static/images/icon/shopping_cart.png"></image>
+    本订单：{{order_info.order_status}}->{{order_info.pay_status}}->{{order_info.shipping_status}}
+  </view>
+  
+  <view class="borderh6"></view>
+
+  <view class="pay_info">
+    <view class="pay_info_left">
+        <image src="/static/images/icon/money.png"></image>
+    </view>
+    <view class="pay_info_right">
+        <text>支付方式:{{order_info.pay_name}}</text>
+        <text>应付金额:￥{{order_info.order_amount}}</text>
+    </view>
+
+  </view>
+
+  <view class="edit_pay">
+    <button style='display:none;' wx:if="{{(order_info.order_status == '未确认' || order_info.order_status == '已确认') && order_info.pay_status == '未付款'}}" type="primary" size="mini" class="edit_pay_button">修改支付方式</button>
+  </view>
+
+  <view class="borderh6"></view>
+
+  <view class="pay_info" style="width:100%;">
+    <view class="pay_info_left">
+        <image src="/static/images/icon/address.png"></image>
+    </view>
+    <view class="pay_info_right">
+        <text>收货人:{{order_info.consignee}}({{order_info.mobile}})</text>
+        <text style="font-size:9pt;">详细地址:中国{{order_info.country}}{{order_info.province}}{{order_info.city}}{{order_info.district}}{{order_info.address}}</text>
+    </view>
+
+  </view>
+
+  <view class="borderh6"></view>
+
+    <block wx:for="{{order_info.goods_list}}" wx:key="list" wx:for-item="list_item">
+
+        <view style='display:none;' class="supplier">
+        <image class="supplier_image" src="http://ghwvip.com/mobile/themesmobile/elm8com_mobile/images/dianpu.png"></image>
+        <text class="supplier_text">供货商：恒达窗轨</text>
+        </view>
+
+        <view class="goods_list">
+
+        <image class="cart_list_image" src="{{list_item.goods_thumb}}"></image>
+
+        <view class="goods_one">
+            <text class="goods_title">{{list_item.goods_name}}</text>
+            <text class="goods_attr">{{list_item.goods_attr}}</text>
+        </view>
+
+        <view class="price">
+            <text class="shop_price">￥{{list_item.goods_price}}</text>
+        </view>
+
+        </view>
+    
+
+    <view class="borderh4">
+    </view>
+
+    </block>
+
+    <view class="order_text">
+        <text class="order_text">订单号:{{order_info.order_sn}}</text>
+        <text class="order_text">配送方式:{{order_info.shipping_name}}</text>
+        <text class="order_text">支付方式:{{order_info.pay_name}}</text>
+        <text class="order_text">订单备注:{{order_info.postscript}}</text>
+    </view>
+
+</view>

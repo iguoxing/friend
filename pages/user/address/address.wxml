@@ -1,0 +1,51 @@
+<view class="add_body">
+
+<navigator redirect="true" url="/pages/shop/flow/flow?id=1">
+  <view class="flow_tis" style="{{flow_tis_style}}">
+    <text class="flow_tis_text">请选择一个收货地址设为默认,点我继续结算喔！</text>
+  </view>
+</navigator>
+
+<block wx:if="{{user_address != 'null'}}">
+  <block wx:for="{{user_address}}" wx:key="user_address">
+
+  <view class="address">
+    <text class="add_name">
+      {{item.consignee}}
+    </text>
+    <text class="add_mobile">
+      {{item.mobile}}
+    </text>
+
+    <text class="add_address">
+      {{item.country}}{{item.province}}{{item.city}}{{item.district}}{{item.address}}
+    </text>
+
+    <view class="edit_menu">
+      <checkbox data-address_id="{{item.address_id}}" bindtap="set_address" class="edit_default" checked="{{item.is_default}}">设为默认</checkbox>
+      
+      <view data-address_id="{{item.address_id}}" bindtap="del_address" class="edit_edit" style="color:red;">删除</view>
+      <navigator url="/pages/user/edit_address/edit_address?address_id={{item.address_id}}">
+        <view class="edit_edit" style="color:blue;">编辑</view>
+      </navigator>
+    </view>
+
+    <view class="borderh4">
+    </view>
+  </view>
+  </block>
+</block>
+<block wx:else>
+  <text class="no_address">{{add_err_tis}}</text>
+</block>
+
+  <view class="footer2">
+    <navigator url="/pages/user/edit_address/edit_address">
+      <text>新增收货地址</text>
+    </navigator>
+  </view>
+
+  <view class="borderh3"></view>
+
+
+</view>

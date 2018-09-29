@@ -1,0 +1,26 @@
+<!--pages/tuan_rule/tuan_rule.wxml-->
+<view class="help">
+    <view id="common" class="help_tit" style="display: block;">拼团流程：</view>
+    <view id="common_step" style="display: block;" class="help_step">
+        <text class="help_i">1</text>
+        <text class="help_t">选择心仪商品</text>
+        <text class='texti'></text>
+        <text class="help_i">2</text>
+        <text class="help_t">支付开团或参团</text>
+        <text class='texti'></text>
+        <text class="help_i">3</text>
+        <text class="help_t">等待好友参团</text>
+        <text class='texti'></text>
+        <text class="help_i">4</text>
+        <text class="help_t">达到人数团购成功</text>
+    </view>
+</view>
+
+<view style="display: block;" id="common_rule" class="rule">
+    <text class="rule_row"><text class="rule_num">(1)</text>选择商品开团：选择拼团商品下单，团长完成支付后，团即刻开启。在24小时内参团人数达到规定人数，此团方能成功。若24小时内参团人数不到规定人数，则该团失败，系统自动为您退款。</text>
+    <text class="rule_row"><text class="rule_num">(2)</text>团长：开团且该团第一位支付成功的人；</text>
+    <text class="rule_row"><text class="rule_num">(3)</text>参团成员：通过团长邀请购买该商品的成员即为参团成员，参团成员也可邀请更多的成员参团。</text>
+    <text class="rule_row"><text class="rule_num">(4)</text>团购成功：从团长开团24小时内找到相应开团人数的好友参团，则该团成功，卖家发货；</text>
+    <text class="rule_row"><text class="rule_num">(5)</text>团购失败：从团长开团24小时内未能找到相应开团人数的好友参团，则该团失败。系统会在1-2个工作日内提交微信处理，微信审核后自动原路退款到您的支付账户。</text>
+    <text class="rule_row"><text class="rule_num">(6)</text>拼团，是基于好友的组团购买，获取团购优惠，为了保证广大消费者的权益，小舍拼团微分销商城有权将判定为黄牛倒货的团解散并取消订单。</text>
+</view>

@@ -1,0 +1,103 @@
+/* pages/stores/stores.wxss */
+page{
+  background: #f2f2f2;
+}
+.nav_fixed_wrap{
+  position: fixed;
+  height: 80rpx;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+.nav_fixed_catgoods{
+  min-width: 100%;
+  background-color: #fff;
+  height: 80rpx;
+  font-size: 30rpx;
+  z-index: 999;
+  display: block;
+}
+
+.fixed_nav_item_catgoods {
+  height: 80rpx;
+  display: inline-block;
+  line-height: 80rpx;
+  float: left;
+  width: 120rpx;
+  text-align: center;
+}
+.nav_cur_cat{
+  border-bottom: 2px solid #df2127;
+  color: red;
+  height: 76rpx;
+  display: inline-block;
+}
+
+.store_list{
+  overflow: hidden;
+  background: #fff;
+  margin-top: 100rpx;
+}
+.grst-block {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #d9d9d9;
+    color: #333;
+    position: relative;
+    overflow: hidden;
+}
+.grst-logo {
+    display: block;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 3px;
+    border: 1px solid #d9d9d9;
+    width: 60px;
+    height: 60px;
+}
+.grst-detail {
+    margin-left: 80px;
+    height: 60px;
+    position: relative;
+}
+.text_h3 {
+    line-height: 22px;
+    height: 22px;
+    font-size: 14px;
+    overflow: hidden;
+    font-weight: bold;
+    display: block;
+}
+.text_p {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666;
+    display: block;
+    overflow: hidden;
+}
+.grst-detail .in {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    border: #fd537b 1px dashed;
+    color: #fd537b;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 24rpx;
+}
+.no_stores{
+  height: 100rpx;
+  line-height: 100rpx;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 30rpx;
+  color: #e95a7a;
+  background: #f2f2f2;
+}

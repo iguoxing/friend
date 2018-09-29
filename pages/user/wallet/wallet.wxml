@@ -1,0 +1,88 @@
+<view class="container">
+  <view class='account_zhanwei'></view>
+  <view class='account_top'>
+    <text class='account_top1'>可用资金：{{userInfo.user_money}}</text>
+    <text class='account_top2'>可用积分：{{userInfo.pay_points}}</text>
+  </view>
+  <view class="nav_fixed"> 
+    <text bindtap='change_nav' data-nav_id='1' class="{{nav_id == 1 ? 'cur' : ''}}">账目明细</text>
+    <text bindtap='change_nav' data-nav_id='2' class="{{nav_id == 2 ? 'cur' : ''}}">提现</text>
+    <text bindtap='change_nav' data-nav_id='3' class="{{nav_id == 3 ? 'cur' : ''}}">充值</text>
+    <text bindtap='change_nav' data-nav_id='4' class="{{nav_id == 4 ? 'cur' : ''}}">申请记录</text>
+  </view>
+
+  <view wx:if="{{nav_id == 1}}">
+    <view class='table'>
+      <view class='tr bg-g'>
+        <view class='td'>操作时间</view>
+        <view class='td'>类型</view>
+        <view class='td'>金额</view>
+        <view class='td'>备注</view>
+      </view>
+
+      <view wx:if="{{account_log.length > 0}}">
+        <block wx:for="{{account_log}}" wx:key="account_log">
+          <view class='tr bg-g'>
+            <view class='td'>{{item.change_time}}</view>
+            <view class='td'>{{item.type}}</view>
+            <view class='td'>{{item.amount}}</view>
+            <view class='td'>{{item.change_desc}}</view>
+          </view>
+        </block>
+      </view>
+      <view wx:else class='no_goods'>
+        <image src='/static/images/icon/no_data.png'></image>
+        <text>没有更多记录了...</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='account_box' wx:if="{{nav_id == 2}}">
+    <form bindsubmit="account_deposit_Submit">
+      <view class="account_deposit">
+        <view class='account_deposit_h3'>每次提现金额在￥1～￥200以内</view>
+        <input type="text" name="amount" class="inp" placeholder="提现金额"></input>
+        <textarea name="user_note" class="tex" placeholder="会员备注"></textarea>
+        <button form-type='submit' class="bnt">提交申请</button>
+      </view>
+    </form>
+  </view>
+
+  <view wx:if="{{nav_id == 3}}">
+    <form bindsubmit="account_cz_Submit">
+      <view class="account_deposit">
+        <input type="text" name="amount" class="inp" placeholder="充值金额"></input>
+        <textarea name="user_note" class="tex" placeholder="会员备注"></textarea>
+        <button form-type='submit' class="bnt">提交申请</button>
+      </view>
+    </form>
+  </view>
+
+  <view wx:if="{{nav_id == 4}}">
+    <view class='table'>
+      <view class='tr bg-g'>
+        <view class='td'>操作时间</view>
+        <view class='td'>类型</view>
+        <view class='td'>金额</view>
+        <view class='td'>状态</view>
+      </view>
+
+      <view wx:if="{{account_log.length > 0}}">
+        <block wx:for="{{account_log}}" wx:key="account_log">
+          <view class='tr bg-g'>
+            <view class='td'>{{item.add_time}}</view>
+            <view class='td'>{{item.process_type}}</view>
+            <view class='td'>{{item.amount}}</view>
+            <view class='td'>{{item.is_paid}}</view>
+          </view>
+        </block>
+      </view>
+      <view wx:else class='no_goods'>
+        <image src='/static/images/icon/no_data.png'></image>
+        <text>没有更多记录了...</text>
+      </view>
+    </view>
+  </view>
+
+
+</view>

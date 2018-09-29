@@ -1,0 +1,57 @@
+<view class="page_header">
+    <view class="to_search">
+      <view class="to_search_center">
+        <image bindtap='to_search' class="search_icon" src="/static/images/icon/search_icon3.png"></image>
+        <input maxlength="-1" type="text" bindinput='searchinput' confirm-type='search' bindconfirm='to_search' placeholder='请输入查找的商品'></input>
+      </view>
+    </view>
+</view>
+<view class="cat_list">
+  <scroll-view scroll-y="true" style='height:{{scrollHeight}}px;' class='cat_list_left'>
+
+  <block wx:for="{{cat_list}}" wx:key="cat_list">
+    <view bindtap='cat_tabClick' data-cat_id='{{item.cat_id}}' class="cat_name_one {{catindex == item.cat_id ? 'select_cat':''}}">
+      <view wx:if="{{catindex == item.cat_id}}" class='left_bule'></view>
+      <view class="cat_one_title">{{item.cat_name}}</view>
+    </view>
+  </block>
+
+  </scroll-view>
+
+  <scroll-view scroll-y="true" style='height:{{scrollHeight}}px;' class='cat_list_right'>
+
+    <block wx:for="{{cat_list}}" wx:key="cat_list">
+      <view wx:if="{{catindex == item.cat_id}}" class='cat_p_list'>
+
+        <view class='item_cat_name'>
+          <navigator class='item_cat_name_nav' url="/pages/category_info/category_info?category_id={{item.cat_id}}&type=one">{{item.cat_name}}</navigator>
+          <navigator class='item_cat_name_nav2' url="/pages/category_info/category_info?category_id={{item.cat_id}}&type=one">查看全部 ></navigator>
+        </view>
+
+        <!--子分类列表  -->
+        <block wx:for="{{item.parent}}" wx:key="{{parent}}" wx:for-item="parent">
+          <navigator url='/pages/category_info/category_info?category_id={{parent.cat_id}}&type=one'>
+          <view class='cat_p_one'>
+            <image src='{{parent.cat_img}}'></image>
+            <text>{{parent.cat_name}}</text>
+          </view>
+          </navigator>
+        </block>
+
+        <!--热门品牌列表  -->
+        <view class='brand_list'>
+          <view class='brand_title'>热门品牌</view>
+          <block wx:for="{{item.brand_list}}" wx:key="{{brand_list}}" wx:for-item="brand_list">
+            <view class='brand_one'>
+              <navigator url='/pages/brand_info/brand_info?brand_id={{brand_list.brand_id}}'>
+                <image class='brand_list_logo' src='{{brand_list.brand_logo}}'></image>
+              </navigator>
+            </view>
+          </block>
+        </view>
+
+      </view>
+    </block>
+
+  </scroll-view>
+</view>

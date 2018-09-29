@@ -1,0 +1,118 @@
+.tis{
+  width: 100%;
+  margin: 0 auto;
+  background:#17b2e0;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  height: 0px;
+}
+
+.loadimg{
+  width: 100%;
+  background: #1BA1E2;
+  height: 80rpx;
+  color: #fff;
+  font-size: 11pt;
+  position: fixed;
+  bottom: 0px;
+  z-index: 99;
+  display: none;
+}
+.loadimg image{
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.loadimg text{
+  line-height: 80rpx;
+  display: block;
+  float: left;
+  margin-left: 20rpx;
+}
+
+
+.scroll_view{
+  height: 2000rpx;
+}
+.load_footer{
+  text-align: center;
+  font-size: 13pt;
+  background: #f5f5f5;
+  width: 100%;
+  clear: both;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: block;
+}
+
+.goods_img{
+  height: 140rpx;
+  width: 140rpx;
+  margin-top: 10rpx;
+  float: left;
+  margin-left: 10rpx;
+}
+.goods_name{
+  font-size: 28rpx;
+  overflow:hidden;
+  display: block;
+  color: #353535;
+}
+.name_number{
+  height: 80rpx;
+  margin-top: 20rpx;
+  float: left;
+  width: 60%;
+  margin-left: 10rpx;
+}
+.square{
+  display: block;
+  font-size: 28rpx;
+  margin:10rpx auto;
+  width: 95%;
+  border-top: 1px solid #f2f2f2;
+}
+.goods_number{
+  font-size: 13pt;
+  color: #b2b2b2;
+  margin-top: 10rpx;
+  display: block;
+}
+.del_collection{
+  float: right;
+  background: url('http://ghwvip.com/mobile/themesmobile/elm8com_mobile/images/icoshanchu.jpg') no-repeat;
+  background-position:center center;
+  background-size:60rpx 60rpx; 
+  font-size: 11pt;
+  color: #fff;
+  width: 10%;
+  height: 160rpx;
+  line-height:160rpx;
+  text-align: center;
+}
+.goods_one{
+  height: 160rpx;
+  width: 100%;
+}
+.fgx{
+  display: block;
+  height: 15rpx;
+  width: 100%;
+  background: #f2f2f2;
+  clear: both;
+  float: left;
+}
+
+
+.borderh5{
+  display: block;
+  font-size: 11pt;
+  height: 15rpx;
+  width: 100%;
+  background: #f2f2f2;
+  clear: both;
+}

@@ -1,0 +1,130 @@
+page{
+  background: #f2f2f2;
+}
+.account_top{
+  height: 80rpx;
+  width: 100%;
+  background: #e95a7a;
+  position: fixed;
+  top: 0;
+  font-size: 30rpx;
+  line-height: 80rpx;
+  color: #fff;
+}
+.account_top1{
+  float: left;
+  margin-left: 5%;
+}
+
+.account_top2{
+  float: right;
+  margin-right: 5%;
+}
+.account_zhanwei{
+  height: 80rpx;
+  width: 100%;
+  display: block;
+}
+.nav_fixed{
+  height: 80rpx;
+  width: 100%;
+  display: block;
+  background: #fff;
+  border-bottom: 1px solid #e4e4e4;
+  margin-bottom: 20rpx;
+}
+.nav_fixed text{
+  width: 25%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  float: left;
+  display: block;
+  text-align: center;
+}
+.nav_fixed .cur{
+  border-bottom: 1px solid #e95a7a;
+}
+
+
+.table {
+  border: 0px solid darkgray;
+  font-size: 26rpx;
+}
+.tr {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  min-height: 2rem;
+  align-items: center;
+}
+.td {
+  width:40%;
+  justify-content: center;
+  text-align: center;
+}
+.bg-g{
+  background: #fff;
+}
+
+.no_goods{
+  margin-top: 40%;
+  text-align: center;
+}
+.no_goods image{
+  height: 200rpx;
+  width: 320rpx;
+  display: block;
+  margin: 0 auto;
+}
+.no_goods text{
+  font-size: 35rpx;
+  color: #898989;
+  display: block;
+  margin-top: 20rpx;
+}
+
+/*提现  */
+.account_box{
+  padding: 20rpx 0 20rpx 0;
+}
+.account_deposit{
+  font-size: 28rpx;
+}
+.account_deposit_h3{
+  line-height: 30px;
+  color: #fd537b;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: center;
+}
+.account_deposit .inp{
+  width: 90%;
+  border: #ddd 1px solid;
+  height: 64rpx;
+  padding: 0 1%;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+.account_deposit .tex{
+  width: 90%;
+  border: #ddd 1px solid;
+  height: 200rpx;
+  padding: 0 1%;
+  margin: 0 auto;
+  border-radius: 5px;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.account_deposit .bnt{
+  margin-top: 40rpx;
+  width: 90%;
+  background: #fd537b;
+  color: #fff;
+  border: none;
+  height: 80rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+}

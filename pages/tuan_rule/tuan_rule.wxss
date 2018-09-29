@@ -1,0 +1,67 @@
+/* pages/tuan_rule/tuan_rule.wxss */
+page{
+  background: #f1f1f2;
+  font-size: 24rpx;
+  line-height: 1.5;
+  color: #666;
+}
+.help{
+  height: auto;
+  overflow: hidden;
+  margin: 0 20rpx 40rpx;
+}
+.help_tit{
+  height: 42rpx;
+  line-height: 42rpx;
+  color: #999;
+  margin-bottom: 30rpx;
+}
+.help_step{
+  height: auto;
+  overflow: hidden;
+  color: #999;
+}
+.help_i {
+  float: left;
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: center;
+  background-color: #999;
+  color: #fff;
+  -webkit-border-radius: 32rpx;
+  -moz-border-radius: 32rpx;
+  border-radius: 32rpx;
+  margin-right: 10rpx;
+  font-size: 24rpx;
+}
+.help_t {
+  float: left;
+  line-height: 32rpx;
+  font-size: 20rpx;
+}
+.texti{
+  float: left;
+  width: 28rpx;
+  height: 2rpx;
+  background-color: #ccc;
+  overflow: hidden;
+  margin: 16rpx 8rpx 0 6rpx;
+}
+
+.rule {
+    margin: 0 10px;
+    color: #999;
+}
+.rule_row {
+    padding-left: 27px;
+    position: relative;
+    line-height: 18px;
+    margin-bottom: 20px;
+    display: block;
+}
+.rule_num {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}

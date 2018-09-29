@@ -1,0 +1,54 @@
+<!--pages/spike/spike.wxml-->
+<view class='spike_container'>
+
+<view class="nav_fixed nav_spike">
+  <text bindtap='tab_nav' data-nav_id='0' class="fixed_nav_item"><text class="{{nav_id == 0 ? 'cur':''}}">全部</text></text>
+  <text bindtap='tab_nav' data-nav_id='1' class="fixed_nav_item"><text class="{{nav_id == 1 ? 'cur':''}}">正在进行</text></text>
+  <text bindtap='tab_nav' data-nav_id='2' class="fixed_nav_item"><text class="{{nav_id == 2 ? 'cur':''}}">即将开始</text></text>
+  <text bindtap='tab_nav' data-nav_id='3' class="fixed_nav_item"><text class="{{nav_id == 3 ? 'cur':''}}">已售罄</text></text>
+</view>
+
+<block wx:for="{{goodslist}}" wx:key="goodslist">
+
+<view wx:if="{{nav_id == 0 || (nav_id == 1 && item.sort_order == 1) || (nav_id == 2 && item.sort_order == 2) || (nav_id == 3 && item.sort_order == 3)}}" class="spike_goods">
+    <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+       <image src='{{item.goods_img}}' class="lazy" style="display: block;"></image>
+    </navigator>
+    <view class="spike_info">
+        <view wx:if="{{item.sort_order == 1}}" class="spike_left_time">
+          <view wx:if="{{item.is_time == 1}}">
+            <text class='span'>剩余</text>
+            <text class='b'>{{item.t}}</text>
+            <text class='span'>天</text>
+            <text class='b'>{{item.h}}</text>
+            <text class='span'>小时</text>
+            <text class='b'>{{item.i}}</text>
+            <text class='span'>分</text>
+            <text class='b'>{{item.s}}</text>
+            <text class='span'>秒结束</text>
+          </view>
+          <view wx:else>请稍后,正在加载...</view>
+        </view>
+        <view wx:if="{{item.sort_order == 2}}" class="spike_left_time">开始时间：{{item.start_date}}</view>
+        <view wx:if="{{item.sort_order == 3}}" class="spike_left_time">已经结束！</view>
+        <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}' class="spike_goods_name">{{item.goods_name}}</navigator>
+        <view class="spike_buy">
+            <view class="spike_price_all">
+                <view class="spike_sale_price">¥{{item.promote_price}}</view>
+            </view>
+            <view wx:if="{{item.sort_order == 1}}" class="spike_buy_button_on">
+              <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>立即抢购</navigator>
+            </view>
+            <view wx:if="{{item.sort_order == 2}}" class="spike_buy_button_come">
+              <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>即将开始</navigator>
+            </view>
+            <view wx:if="{{item.sort_order == 3}}" class="spike_buy_button_off">
+              <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>已售罄</navigator>
+            </view>
+        </view>
+    </view>
+</view>
+
+</block>
+
+</view>

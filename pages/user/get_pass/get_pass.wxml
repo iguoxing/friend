@@ -1,0 +1,35 @@
+<view class="body">
+
+  <view id="tis" class="tis" style="{{tisshow}}">
+    {{tis}}
+  </view>
+  
+  <view class="login_from">
+    <form bindsubmit="get_pass_submit" bindreset="login_reset">
+      <view class="login_div">
+        <text>手机号:</text>
+        <input bindfocus="hidetis" bindinput="listenermobileInput" class="login_input" placeholder="请输入您账户绑定的手机号" name="mobile" type="text"/>
+      </view>
+
+      <view class="login_div">
+        <text>验证码:</text>
+        <input bindfocus="hidetis" class="get_pass_input" placeholder="短信验证码" name="mobile_code" type="number" maxlength="6" />
+        <button wx:if="{{buttom_zt == 'true'}}" bindtap="get_sms_code" class="get_sms_code" type="primary" size="mini">{{clock}}</button>
+        <button wx:if="{{buttom_zt == 'false'}}" bindtap="get_sms_code" class="get_sms_code" disabled="true" type="primary" size="mini">{{clock}}</button>
+      </view>
+
+      <view class="login_div">
+        <text>新密码:</text>
+        <input bindfocus="hidetis" class="login_input" placeholder="新的密码" name="new_password" type="text"/>
+      </view>
+
+      <button form-type="submit" class="login_button" type="primary">找回密码</button>
+    </form>
+
+    <view class="login_additional">
+      <navigator class="additional_nav2" url="../register/register">立即注册</navigator>
+    </view>
+
+  </view>
+
+</view>

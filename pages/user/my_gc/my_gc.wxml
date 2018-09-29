@@ -1,0 +1,24 @@
+<view class="body">
+    <view id="tis" class="tis" style="{{tisshow}}">
+        {{tis}}
+    </view>
+
+    <scroll-view scroll-y="true" scroll-left="1" class="scroll_view" bindscrolltolower="load_list">
+        <block wx:for="{{collect_goods}}" wx:key="item">
+            <view class="goods_one">
+                <navigator url="/pages/goods/goods?goods_id={{item.goods_id}}">
+                    <image class="goods_img" src="{{item.goods_thumb}}"></image>
+                    <view class="name_number">
+                        <text class="goods_name">商品:{{item.goods_name}}</text>
+                    </view>
+                </navigator>
+                <view class="del_collection" data-coll_id="{{item.order_id}}" bindtap="del_collection"></view>
+            </view>
+            <view class='square'>广场标语:{{item.square == '' || item.square == 'null' ? '无':item.square}}</view>
+            <view class='fgx'></view>
+
+            <text class="borderh5"></text>
+        </block>
+    </scroll-view>
+
+</view>

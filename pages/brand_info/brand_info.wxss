@@ -1,0 +1,87 @@
+/* pages/brand_info/brand_info.wxss */
+page{
+  background: #f2f2f2;
+}
+.brand_info{
+  height: 160rpx;
+  display: block;
+  background: #fff;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+.brand_info image{
+  width: 35%;
+  height: 160rpx;
+  display: inline-block;
+  float: left;
+}
+.brand_info_right{
+  display: inline-block;
+  float: left;
+  width: 62%;
+  height: 160rpx;
+  margin-left: 2%;
+  margin-right: 1%;
+}
+.brand_name{
+  display: block;
+  font-size: 32rpx;
+  color: #666;
+  margin-top: 10rpx;
+  font-weight: bold;
+}
+.brand_desc{
+  display: inline-block;
+  font-size: 28rpx;
+  color: #666;
+  height: 56rpx;
+  margin-top: 15rpx;
+  line-height: 28rpx;
+  overflow: hidden;
+}
+
+
+/*精品商城列表  */
+.good_list{
+  overflow: hidden;
+  width: 98%;
+  margin-bottom: 20rpx;
+}
+
+.list_B{
+  float: left;
+  width: 49%;
+  margin-top: 6rpx;
+  background: #fff;
+  padding-bottom: 10rpx;
+  position: relative;
+  margin-left: 1%;
+}
+.good_list_images{
+  width: 100%;
+}
+.list_B .tit{
+  font-size: 28rpx;
+  height: 80rpx;
+  display: block;
+  line-height: 40rpx;
+  overflow: hidden;
+  width: 96%;
+  padding: 0 2%;
+}
+.list_B .price{
+  color: #fd537b;
+  font-size: 28rpx;
+  float: left;
+  padding-left: 2%;
+}
+.price .shop_price{
+  font-size: 36rpx;
+}
+.market_price{
+  font-size: 30rpx;
+  color: #666;
+  text-decoration: line-through;
+  float: right;
+  margin-right: 6rpx;
+}

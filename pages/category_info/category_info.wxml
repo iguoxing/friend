@@ -1,0 +1,138 @@
+<view class="page_header">
+
+    <view class="to_search">
+      <view class="to_search_center">
+        <image bindtap='to_search' class="search_icon" src="/static/images/icon/search_icon3.png"></image>
+        <input confirm-type='search' bindconfirm='to_search' bindinput="searchinput" maxlength="-1" type="text" placeholder='请输入查找的商品'></input>
+      </view>
+    </view>
+
+    <image bindtap='tab_xiansi' wx:if="{{xianshimoshi == 1}}" class='address_index' src='/static/images/icon/xianshimoshi2.png'></image>
+    <image bindtap='tab_xiansi' wx:else class='address_index' src='/static/images/icon/xianshimoshi1.png'></image>
+</view>
+
+<scroll-view scroll-into-view="{{scroll_into_view}}" scroll-x="true" class="cat_list">
+  <view class="cat_list-navbar" style="width:{{cat_list.length*132+132}}rpx;">
+    <view id="cat_{{cat_parent_id}}" data-cat_id="{{cat_parent_id}}" class="cat_list_item {{cat_parent_id == catindex ? 'cat_list_item_on' : ''}}" bindtap="cat_tabClick">
+        <view class="cat_name">全部</view>
+    </view>
+    <block wx:for-items="{{cat_list}}" wx:for-item="item" wx:key="cat_list">
+      <view id="cat_{{item.cat_id}}" data-cat_id="{{item.cat_id}}" class="cat_list_item {{item.cat_id == catindex ? 'cat_list_item_on' : ''}}" bindtap="cat_tabClick">
+        <view class="cat_name">{{item.cat_name}}</view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+
+
+<view wx:if="{{is_goods_list == 1}}" class="goods_list">
+
+  <view wx:if="{{cat_type == 'tuan'}}">
+
+  <block wx:if="{{xianshimoshi == 1}}">
+
+    <view class='tuan_list'>
+
+    <block wx:for="{{goods_list}}" wx:key="goods_list">
+      <view class='tuan_g'>
+
+          <view class='tuan_g_img'>
+            <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+              <image mode="widthFix" src='{{item.little_img}}'></image>
+            </navigator>
+          </view>
+
+          <view class="tuan_g_info">
+            <text class="tuan_g_name">{{item.goods_name}}</text>
+          </view>
+
+          <view class="tuan_g_core">
+            <image class='tuan_g_core_image' src='/static/images/icon/people.png'></image>
+            <text class="tuan_g_num">{{item.team_num}}人团</text>
+            <view class="tuan_fgx"></view>
+            <view class="tuan_g_price"><text class='tuan_g_price_fuhao'>¥</text>{{item.shop_price}}</view>
+            <text class="tuan_g_mprice"><text>￥</text>{{item.market_price}}</text>
+            <navigator class="tuan_g_btn" url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+              <view>去开团 ></view>
+            </navigator>
+          </view>
+
+        </view>
+      </block>
+
+    </view>
+  </block>
+
+  <block wx:if="{{xianshimoshi == 2}}" wx:for="{{goods_list}}" wx:key="goods_list">
+    <view class='goods2_one'>
+      <image class='goods2_one_img' src='{{item.goods_thumb}}'></image>
+
+      <view class='goods2_one_right'>
+        <text class='goods2_one_name'>{{item.goods_name}}</text>
+        <text class='goods2_one_name2'>{{item.goods_brief}}</text>
+
+        <view class="tuan_g_core2">
+            <text class="tuan_g_num2">5人团</text>
+            <view class="line2"></view>
+            <view class="tuan_g_price2">￥{{item.shop_price}}</view>
+            <text class="tuan_g_mprice2">￥{{item.market_price}}</text>
+            <navigator url="/pages/goods/goods?goods_id={{item.goods_id}}">
+              <view class="tuan_g_btn2">开团</view>
+            </navigator>
+        </view>
+
+      </view>
+    </view>
+  </block>
+
+  </view>
+  <view wx:if="{{cat_type == 'one' || cat_type == 'miao'}}">
+
+    <block wx:if="{{xianshimoshi == 1}}">
+      <view class='good_list'>
+        <block wx:for="{{goods_list}}" wx:key="goods_list">
+          <view class='list_B'>
+            <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+              <image mode='widthFix' class='good_list_images' src='{{item.goods_thumb}}'></image>
+            </navigator>
+            <text class="tit">{{item.goods_name}}</text>
+            <text class="price">¥<text class="shop_price">{{item.shop_price}}</text></text>
+            <view class="mai">买</view>
+          </view>
+        </block>
+      </view>
+    </block>
+
+
+    <block wx:if="{{xianshimoshi == 2}}" wx:for="{{goods_list}}" wx:key="goods_list">
+      <view class='goods2_one'>
+        <image class='goods2_one_img' src='{{item.goods_thumb}}'></image>
+
+        <view class='goods2_one_right'>
+          <text class='goods2_one_name'>{{item.goods_name}}</text>
+          <text class='goods2_one_name2'>{{item.goods_brief}}</text>
+
+          <view class="tuan_g_core2">
+              <view class="tuan_g_price2">￥{{item.shop_price}}</view>
+              <view class="line2"></view>
+              <text class="tuan_g_mprice2">￥{{item.market_price}}</text>
+              <navigator url="/pages/goods/goods?goods_id={{item.goods_id}}">
+                <view class="tuan_g_btn2">买</view>
+              </navigator>
+          </view>
+
+        </view>
+      </view>
+    </block>
+
+  </view>
+</view>
+
+<view wx:else class='no_goods'>
+  <image src='/static/images/icon/no_data.png'></image>
+  <text>没有更多商品了...</text>
+</view>
+
+<view wx:if="{{is_goods_list == 1}}" class="cate_footer">
+  {{footer_text}}
+</view>

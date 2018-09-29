@@ -1,0 +1,77 @@
+/*login.wxss*/
+
+.body{
+  margin: 100rpx;
+
+}
+
+.tis{
+  width: 100%;
+  background: #fff;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  height: 60rpx;
+  font-size: 30rpx;
+}
+
+.header{
+  border-bottom: 2px solid #09BB07;
+  margin:20rpx 0;
+  display: block;
+  text-align: center;
+}
+
+.login_from{
+  margin-top: 40rpx;
+}
+
+.login_input{
+  border-bottom: 1px solid #353535;
+  height: 80rpx;
+}
+
+.get_pass_input{
+  border-bottom: 1px solid #353535;
+  height: 80rpx;
+  width: 220rpx;
+  display: inline-block;
+}
+.get_sms_code{
+  float: right;
+  margin-top: 20rpx;
+  width: 220rpx;
+  display: inline-block;
+  background: #17b2e0 !important;
+}
+
+.login_from text{
+  font-size: 30rpx;
+}
+.login_div{
+  margin-top: 30rpx;
+}
+.login_div text{
+  display: block;
+}
+
+.login_button{
+  margin-top: 30rpx;
+  background: #17b2e0 !important;
+}
+.login_additional{
+  font-size: 30rpx;
+  margin-top: 50rpx;
+}
+.additional_nav{
+  display: inline-block;
+  color: blue;
+  margin: 0;
+}
+
+.additional_nav2{
+  display: inline-block;
+  color: blue;
+  margin: 0;
+  float: right;
+}

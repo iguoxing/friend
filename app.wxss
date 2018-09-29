@@ -1,0 +1,57 @@
+/**app.wxss**/
+
+.inlineelement{
+  display: inline;
+}
+.block1h{
+  height: 100rpx;
+}
+.h6border{
+  height: 2px;
+  background: #F5F5F5;
+  display: block;
+  clear: both;
+}
+
+.loadimg{
+  width: 100%;
+  background: #1BA1E2;
+  height: 80rpx;
+  color: #fff;
+  font-size: 11pt;
+  position: fixed;
+  bottom: 0px;
+  z-index: 99;
+  display: none;
+}
+.loadimg image{
+  width: 60rpx;
+  height: 60rpx;
+  display: block;
+  float: left;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+}
+.loadimg text{
+  line-height: 80rpx;
+  display: block;
+  float: left;
+  margin-left: 20rpx;
+}
+
+.h1border{
+  height: 15px;
+  background: #F5F5F5;
+  display: block;
+  clear: both;
+}
+
+.footer{
+  height: 100rpx;
+  background: #efefef;
+  display: block;
+  clear: both;
+  line-height: 100rpx;
+  font-size: 25rpx;
+  text-align: center;
+}

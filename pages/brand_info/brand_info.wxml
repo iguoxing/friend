@@ -1,0 +1,21 @@
+<!--pages/brand_info/brand_info.wxml-->
+<view class='brand_info'>
+  <image src='{{brand_info.brand_logo}}'></image>
+  <view class='brand_info_right'>
+    <text class='brand_name'>{{brand_info.brand_name}}</text>
+    <text class='brand_desc'>{{brand_info.brand_desc}}</text>
+  </view>
+</view>
+
+<view class='good_list'>
+  <block wx:for="{{goods_list}}" wx:key="goods_list">
+    <view class='list_B'>
+      <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <image mode='widthFix' class='good_list_images' src='{{item.goods_thumb}}'></image>
+      </navigator>
+      <text class="tit">{{item.goods_name}}</text>
+      <text class="price">¥<text class="shop_price">{{item.shop_price}}</text></text>
+      <view class="market_price">￥{{item.market_price}}</view>
+    </view>
+  </block>
+</view>

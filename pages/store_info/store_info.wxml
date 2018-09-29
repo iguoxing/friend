@@ -1,0 +1,77 @@
+<!--pages/store_info/store_info.wxml-->
+<view class="tpl-shop">
+    <view style='display:none;' class="tpl-shop-topbar">
+        <text class='topbar_left'>认证店铺</text>
+        <text>收藏店铺</text>
+        <text>二维码</text>
+    </view>
+    <view class="tpl-shop-header">
+        <view class="tpl-shop-title">
+          <text class='text_p'>{{suppliers.suppliers_name}}的店铺</text>
+        </view>
+        <view class="tpl-shop-avatar">
+            <image src="{{suppliers.supp_logo == '' ? 'http://lht.she985.com/images/store_logo.jpg':suppliers.supp_logo}}"></image>
+        </view>
+    </view>
+    <view class="tpl-shop-content">
+        <text>商品<text style='color: #fd537b;' class='text_b'>{{suppliers.goods_num}}</text></text>
+        <text>销量<text style='color: #fd537b;' class='text_b'>{{suppliers.sales_num}}</text></text>
+        <text bindtap='is_show_share' class='fx'>分享店铺</text>
+    </view>
+</view>
+<view class="store_nav">
+    <view bindtap='change_nav' data-nav_id='0' class="{{nav_id == 0 ? 'view_cur':''}}">拼团商品</view>
+    <view bindtap='change_nav' data-nav_id='1' class="{{nav_id == 1 ? 'view_cur':''}}">单买爆款</view>
+</view>
+
+<view wx:if="{{nav_id == 0}}" class='tuan_list'>
+
+  <block wx:for="{{tuan_goods_list}}" wx:key="tuan_goods_list">
+    <view class='tuan_g'>
+
+      <view class='tuan_g_img'>
+        <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+          <image mode="widthFix" src='{{item.little_img}}'></image>
+        </navigator>
+      </view>
+
+      <view class="tuan_g_info">
+        <text class="tuan_g_name">{{item.goods_name}}</text>
+      </view>
+
+      <view class="tuan_g_core">
+        <image class='tuan_g_core_image' src='/static/images/icon/people.png'></image>
+        <text class="tuan_g_num">{{item.team_num}}人团</text>
+        <view class="tuan_fgx"></view>
+        <view class="tuan_g_price"><text class='tuan_g_price_fuhao'>¥</text>{{item.team_price}}</view>
+        <text class="tuan_g_mprice"><text>￥</text>{{item.market_price}}</text>
+        <navigator class="tuan_g_btn" url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+          <view>去开团 ></view>
+        </navigator>
+      </view>
+
+    </view>
+  </block>
+
+</view>
+
+<view wx:if="{{nav_id == 1}}" class='good_list'>
+  <block wx:for="{{mall_goods_list}}" wx:key="mall_goods_list">
+    <view class='list_B'>
+      <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <image mode='widthFix' class='good_list_images' src='{{item.goods_thumb}}'></image>
+      </navigator>
+      <text class="tit">{{item.goods_name}}</text>
+      <text class="price">¥<text class="shop_price">{{item.shop_price}}</text></text>
+      <view class="mai">买</view>
+    </view>
+  </block>
+</view>
+
+<view bindtap='hidden_share' wx:if="{{is_show_share}}" class="share_img">
+    <image class="arrow" src="http://lht.she985.com/themes/haohai2017/images/share.png"></image>
+    <view class='view_right'>
+      <text class='text_p' style="margin-top:40rpx; margin-right:180rpx;">点击右上角，</text>
+      <text class='text_p' style="margin-right:180rpx;">将此店铺分享给好友</text>
+    </view>
+</view>

@@ -1,0 +1,80 @@
+<view>
+
+    <view id="tis" class="tis" style="{{tisshow}}">
+    {{tis}}
+    </view>
+
+    <view class="user_default_address">
+        <text class="left_red"></text>
+        <text class="user_default_address_name">收货人:{{user_default_address.consignee}}</text>
+        <text class="user_default_address_mobile">联系手机:{{user_default_address.mobile}}</text>
+        <text class="user_default_address_address">具体地址:{{user_default_address.country}}{{user_default_address.province}}{{user_default_address.city}}{{user_default_address.district}}{{user_default_address.address}}</text>
+    </view>
+
+    <view class="borderh4"></view>
+
+    <view class="address_edit">
+        <navigator open-type="reLaunch" url="/pages/shop/cart/cart">
+            <image src="http://ececho.cn/mobile/themesmobile/68ecshopcom_mobile/images/flow/black.png"></image>
+            <text class="back_cart_text">回购物车</text>
+        </navigator>
+
+        <navigator redirect="true" url="/pages/user/address/address?type=flow">
+            <text class="back_cart_text_right">重选收货地址</text>
+        </navigator>
+
+        <navigator redirect="true" url="/pages/user/edit_address/edit_address?type=flow">
+            <text class="back_cart_text_right">新增收货地址</text>
+        </navigator>
+    </view>
+
+    <view class="borderh4"></view>
+
+    <block wx:for="{{cart_list}}" wx:key="cart_list">
+        <view class="cart_goods">
+            <image class="cart_goods_image" src="{{item.goods_thumb}}"></image>
+
+            <view class="goods_one_text">
+                <text class="goods_name">{{item.goods_name}}</text>
+                <text class="goods_price">单价:{{item.goods_price}}元 {{item.goods_number}}份</text>
+                <text class="goods_attr">{{item.goods_attr}}</text>
+            </view>
+        </view>
+    </block>
+
+    <view class="borderh4"></view>
+
+    <view>
+        <text class="order_note">订单备注</text>
+        <textarea class="order_note_textarea" bindblur="order_note_AreaBlur" auto-height />
+    </view>
+
+    <view class="borderh4"></view>
+
+    <view class="pay_type">
+        <view class="pay_left_red"></view>
+        <text class="pay_type_title">支付方式</text>
+
+        <radio-group class="pay_radio_group" bindchange="pay_radioChange">
+            <label for="wx" class="pay_radio {{pay_radio_select[0].wx}}">
+                <radio class="pay_radio2" id="wx" value="1" checked="{{pay_radio_select[0].wx}}" />微信
+            </label>
+            <label for="yue" class="pay_radio {{pay_radio_select[0].yue}}">
+                <radio class="pay_radio2" id="yue" value="2" checked="{{pay_radio_select[0].yue}}" />余额
+            </label>
+            <label style="display:none;" for="hdfk" class="pay_radio {{pay_radio_select[0].hdfk}}">
+                <radio class="pay_radio2" id="hdfk" value="3" checked="{{pay_radio_select[0].hdfk}}" />货到付款
+            </label>
+        </radio-group>
+    </view>
+
+    <view class="borderh4"></view>
+    <view class="borderh4"></view>
+
+    <view class="order_total">
+        <text class="order_total_text">商品总价({{goods_amount}}元)+配送费用({{shipping_fee}}元)<text wx:if="{{supp_shipping_fee > 0}}">+子店铺运费({{supp_shipping_fee}}元)</text></text>
+        <text class="order_total_text2">应付总额:<text class="colorred">￥{{goods_amount_sum}}元</text> </text>
+    </view>
+
+    <button loading="{{button_load}}" disabled="{{button_load}}" bindtap="order_done" type="warn" class="send_order_button">提交订单</button>
+</view>

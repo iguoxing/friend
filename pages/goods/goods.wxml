@@ -1,0 +1,235 @@
+<view class="goods_body">
+
+    <swiper style="height:700rpx;" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
+            duration="{{duration}}">
+        <block wx:for="{{goods_img_list}}" wx:key="wpiper" wx:item="wpitem">
+            <swiper-item>
+                <image src="{{item}}" class="slide-image"/>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view wx:if="{{goods_info.gmt_end_time_xcx > 0}}" class='gmt_end_time_f'>
+        <view class='gmt_end_time'>
+            <text>{{goods_info.gmt_end_time_text}}</text>
+        </view>
+    </view>
+
+    <view class="title">
+
+
+        <view class="goods_name">{{goods_info.goods_name}}</view>
+
+        <view class="goods_brief">{{goods_info.goods_brief}}</view>
+
+        <text class="goods_price">￥{{goods_info.team_price}}</text>
+
+        <text class="market_price">￥{{goods_info.market_price}}</text>
+
+        <text wx:if="{{goods_info.is_team == 1}}" class="tuansheng_price">拼团省:{{goods_info.tuansheng_price}}元</text>
+
+        <view class="goods_number">已售：{{goods_info.xiaoliang}}件</view>
+
+        <view class="blank"></view>
+
+        <view class="line"></view>
+
+        <view wx:if="{{suppliers != 0}}" class='store_info'>
+            <image class='store_icon' src='/static/images/icon/store_icon.png'></image>
+            <text>{{suppliers.suppliers_name}}</text>
+            <image bindtap='call_phone' data-phone='{{suppliers.phone}}' class='calllogshortcut'
+                   src='/static/images/icon/calllogshortcut.png'></image>
+        </view>
+
+        <view wx:if="{{suppliers != 0}}" class="line"></view>
+
+        <view wx:if="{{goods_info.is_team == 1}}" class='tuan_tis'>
+            <text class='tuan_tis_text1'>支付开团并邀请好友参团，未成团自动退款</text>
+            <navigator url='/pages/tuan_rule/tuan_rule'>
+                <text class='tuan_tis_text2'>开团介绍 ></text>
+            </navigator>
+        </view>
+
+        <view style='background:#ededed;width:100%;' wx:if="{{goods_team_order_length > 0}}" class='tuan_tis'>
+            <text style='margin-left:3%;' class='tuan_tis_text1'>小伙伴正在发起的参团，您可以直接参与</text>
+        </view>
+
+        <view wx:if="{{goods_team_order_length > 0}}" class='team_order_list'>
+            <block wx:for="{{goods_team_order}}" wx:key="item">
+                <view class='team_order_one'>
+                    <image class='user_tx' src='{{item.headimg}}'></image>
+                    <text class='user_name'>{{item.uname}}</text>
+                    <text class='daojishi'>{{item.s_miao_text}}</text>
+
+                    <navigator url='/pages/share_tuan/share_tuan?team_sign={{item.team_sign}}'>
+                        <view class='juxing'>
+                            <text class='juxing_left_text'></text>
+                            <view class='juxing_right_vive'>还差{{item.db_num}}人成团，去参团</view>
+                        </view>
+                    </navigator>
+
+                </view>
+            </block>
+        </view>
+
+    </view>
+
+    <view class='borderh2'></view>
+
+    <block class="ht_block">
+        <rich-text class='rich_class' nodes="{{goods_info.goods_desc}}"></rich-text>
+    </block>
+
+
+    <view class="footer_botton">
+        <view class="footer_cart_botton">
+            <navigator open-type="switchTab" url="/pages/index/index">
+                <image src="/static/images/icon/index-38d3d45c2c.png"></image>
+                <text>首页</text>
+            </navigator>
+        </view>
+
+        <view bindtap='goods_collect' data-goods_id='{{goods_info.goods_id}}' class="footer_cart_botton">
+            <image wx:if="{{user_is_collect == 0}}" src="/static/images/icon/no_liked2.png"></image>
+            <image wx:else src="/static/images/icon/is_liked2.png"></image>
+            <text>收藏</text>
+        </view>
+
+        <button open-type="contact" MsgType="miniprogrampage" send-message-title="{{goods_info.goods_name}}"
+                send-message-img="{{item}}" show-message-card="true" session-from="weapp"
+                class="footer_cart_botton_contact">
+            <image src="/static/images/icon/message-fb3e83c325.png"></image>
+            <text>客服</text>
+        </button>
+
+        <block wx:if="{{goods_info.is_team == 1 && flow_type == 'none' && goods_info.is_miao == 0}}">
+            <view bindtap="is_show_pre_fun" data-flow_type='tuan' class="attr_to_caty2" type="warn">
+                <text>￥{{goods_info.team_price}}元/件</text>
+                <text>{{goods_info.team_num}}人团</text>
+            </view>
+            <view bindtap="is_show_pre_fun" data-flow_type='one' class="attr_to_caty" type="warn">
+                <text>￥{{goods_info.shop_price}}元/件</text>
+                <text>单独购</text>
+            </view>
+        </block>
+
+        <block wx:if="{{flow_type == 'tuan'}}">
+            <view style='width:60%;' bindtap="flow_done" data-flow_type='tuan' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>下一步</text>
+            </view>
+        </block>
+
+        <!--秒杀产品,加入购物车并跳转到购物车页面  -->
+        <block wx:if="{{flow_type == 'one' && goods_info.is_miao == 1}}">
+            <view style='width:60%;' bindtap="flow_done" data-flow_done_type='liji' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>确定</text>
+            </view>
+        </block>
+
+        <block wx:if="{{flow_type == 'one' && goods_info.is_miao == 0}}">
+            <view bindtap="flow_done" data-flow_done_type='liji' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>立即购买</text>
+            </view>
+            <view bindtap="flow_done" data-flow_done_type='add_cart' class="attr_to_caty" type="warn">
+                <text style='line-height: 80rpx;'>加入购物车</text>
+            </view>
+        </block>
+
+        <!--单品的底部菜单  -->
+        <block wx:if="{{goods_info.is_mall == 1 && goods_info.is_team == 0 && goods_info.is_miao == 0}}">
+            <view bindtap="is_show_pre_fun" data-flow_type='one' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>立即购买</text>
+            </view>
+            <view bindtap="is_show_pre_fun" data-flow_type='one' class="attr_to_caty" type="warn">
+                <text style='line-height: 80rpx;'>加入购物车</text>
+            </view>
+        </block>
+
+        <!-- 秒杀产品的底部菜单  -->
+        <block wx:if="{{goods_info.is_mall == 1 && goods_info.is_team == 0 && goods_info.is_miao == 1}}">
+            <view wx:if="{{goods_info.sort_order == 1}}" style='width:60%;' bindtap="is_show_pre_fun"
+                  data-flow_type='one' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>马上购买</text>
+            </view>
+
+            <view wx:if="{{goods_info.sort_order == 2}}" style='width:60%;' class="attr_to_caty3" type="warn">
+                <text style='line-height: 80rpx;'>尚未开始</text>
+            </view>
+
+            <view wx:if="{{goods_info.sort_order == 3}}" style='width:60%;' class="attr_to_caty3" type="warn">
+                <text style='line-height: 80rpx;'>已经结束</text>
+            </view>
+        </block>
+
+    </view>
+
+    <view class="border_h1"></view>
+</view>
+
+        <!--全局遮罩  -->
+<view bindtap='cancel_pre' wx:if="{{is_show_pre == 1}}" class='zhezhao'></view>
+
+        <!--数量设置-加入购物车  -->
+<view wx:if="{{is_show_pre == 1}}" class='speDiv'>
+<view bindtap='cancel_pre' class='sku-quit'></view>
+<view class="sku-head">
+    <image class="skuimage" src="{{goods_info.goods_thumb}}"></image>
+
+    <view class='sku-detail'>
+        <view class="sku-name">{{goods_info.goods_name}}</view>
+        <view class="sku-price2-depends">￥{{flow_type == 'tuan' ? goods_info.team_price:goods_info.shop_price}}</view>
+        <text class="attr-stock" id="attr-stock">库存:{{goods_info.goods_number}}</text>
+    </view>
+    <!--商品属性开始  -->
+    <view class="goods_pre_body_item">
+
+        <view wx:if="{{goods_properties != 'null'}}">
+            <block wx:for="{{goods_properties}}" wx:key="attr">
+
+                <view class="goods_pre_title">{{item.name}}:</view>
+
+                <view wx:if="{{item.attr_type == 1}}">
+
+
+                    <view bindtap="change_typea" data-value="{{values.id}}-{{item.attr_id}}"
+                          class="attr_item {{values.attr_item_select}}" wx:for="{{item.values}}"
+                          data-laber_name="{{values.label}}" data-laber_pic="{{values.price}}" wx:for-item="values"
+                          wx:key="values">
+                        {{values.label}}
+                    </view>
+
+                </view>
+
+            </block>
+        </view>
+
+
+    </view>
+    <!--商品属性结束  -->
+</view>
+
+<view class="sku-amount">
+
+    <view class="sku-text">
+        <text>购买数量</text>
+        <view class="nbox">
+            <view class="fa fa-minus {{goods_number > 1 ? '':'hui'}}" bindtap="change_num_jian">-</view>
+            <input type="text" class="num" value="{{goods_number}}" size="4" bindinput="change_num"></input>
+            <view class="fa fa-plus" bindtap="change_num_jia">+</view>
+        </view>
+    </view>
+
+</view>
+
+
+</view>
+
+        <!--悬浮按钮  -->
+<navigator open-type="reLaunch" url="/pages/shop/cart/cart">
+<view class='gw-cart-p'>
+    <text class="gw-cart">{{cart_number}}</text>
+</view>
+</navigator>
+
+<view bindtap='back_top' class="back-top" wx:if="{{is_show_back_top}}">
+<text>顶部</text>
+</view>

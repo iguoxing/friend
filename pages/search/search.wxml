@@ -1,0 +1,26 @@
+<!--pages/search/search.wxml-->
+<view class="page_header">
+    <view class="to_search">
+      <view class="to_search_center">
+        <image class="search_icon" src="/static/images/icon/search_icon3.png"></image>
+        <input bindblur='to_search' placeholder='商品搜索'></input>
+      </view>
+    </view>
+</view>
+
+<view class='tis'>
+  <text>有关<text class='colorred'>{{keywords}}</text>的商品有<text class='colorred'>{{goods_list.length}}</text>种</text>
+</view>
+
+<view class="goods_list">
+  <block wx:for="{{goods_list}}" wx:key="goods_list">
+    <view class="goods_one">
+      <navigator url="/pages/goods/goods?goods_id={{item.goods_id}}" open-type="navigate">
+      <image class="goods_img" src="{{item.goods_thumb}}"></image>
+      <text class="goods_title">{{item.goods_name}}</text>
+      <text class="shop_price">￥{{item.shop_price}}</text>
+      <image class="cart_img" src="/static/images/icon/index_cart.png"></image>
+      </navigator>
+    </view>
+  </block>
+</view>

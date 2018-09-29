@@ -1,0 +1,125 @@
+<view class='container'>
+
+  <view class="my">
+    <view class="my_head_pic">
+        <image src='{{user.headimg}}'></image>
+    </view>
+    <view class="my_head_info">
+        <text class='user_name'>{{user.user_name}}</text>            
+        <text class='user_money'>账户余额：{{user.user_money}}元</text>
+        <text class='user_money'>积分：{{user.pay_points}}分</text>
+    </view>
+	    <view class="my_nav">
+        <navigator url='/pages/user/collection_list/collection_list'>
+          <view>
+            <image src='/static/images/user/fx_sc.png'></image>
+            <text>收藏</text>
+          </view>
+        </navigator>
+        <navigator url='/pages/user/wallet/wallet'>
+          <view>
+            <image src='/static/images/user/fx_qb.png'></image>
+            <text>钱包</text>
+          </view>
+        </navigator>
+	    </view>
+    </view>
+
+    <view class='nav_order'>
+      <view class='nav_item_order_hd'>
+        <text class='my_order_title'>我的订单</text>
+        <navigator url='/pages/user/order_list/order_list'>
+          <view class='my_order_all'>
+            <text>查看全部订单</text>
+            <image src='/static/images/icon/personal_arrow.png'></image>
+          </view>
+        </navigator>
+      </view>
+
+      <view class='nav_item_bd'>
+        <navigator url='/pages/user/order_list/order_list?nav_id=100'>
+          <view class='nav_item_order_img order_unpay'></view>
+          <text>待付款</text>
+        </navigator>
+
+        <navigator url='/pages/user/order_list/order_list?nav_id=102'>
+          <view class='nav_item_order_img order_unhexiao'></view>
+          <text>待核销</text>
+        </navigator>
+
+        <navigator url='/pages/user/order_list/order_list?nav_id=180'>
+          <view class='nav_item_order_img order_unsend'></view>
+          <text>待发货</text>
+        </navigator>
+
+        <navigator url='/pages/user/order_list/order_list?nav_id=120'>
+          <view class='nav_item_order_img order_unreceived'></view>
+          <text>待收货</text>
+        </navigator>
+
+        <navigator url='/pages/user/order_list/order_list?nav_id=999'>
+          <view class='nav_item_order_img order_unevaluated'></view>
+          <text>已完成</text>
+        </navigator>
+      </view>
+    </view>
+
+    <view class='nav_list'>
+
+      <navigator open-type='reLaunch' url='/pages/shop/cart/cart'>
+        <view class='nav_one border_right'>
+          <image src='https://lht.she985.com/themes/haohai2017/images/icon_team.png'></image>
+          <text>我的购物车</text>
+        </view>
+      </navigator>
+
+      <navigator url='/pages/user/my_tuan/my_tuan'>
+        <view class='nav_one border_right'>
+          <image src='https://lht.she985.com/themes/haohai2017/images/icon_team.png'></image>
+          <text>我的团</text>
+        </view>
+      </navigator>
+
+      <navigator url='/pages/user/address/address'>
+        <view class='nav_one border_right'>
+          <image src='https://lht.she985.com/themes/haohai2017/images/icon_adress.png'></image>
+          <text>收货地址</text>
+        </view>
+      </navigator>
+
+      <navigator url='/pages/user/my_gc/my_gc'>
+        <view class='nav_one'>
+          <image src='https://lht.she985.com/xcx/images/icon_gc.png'></image>
+          <text>我的广场</text>
+        </view>
+      </navigator>
+
+    </view>
+
+    
+    <view class="nav_sug">
+      <navigator url='/pages/article/article'>
+        <image class='nav_sug_img' src='https://lht.she985.com/themes/haohai2017/images/icon_sug.png'></image>
+        <text>常见问题</text>
+        <image class='nav_sug_personal_arrow' src='/static/images/icon/personal_arrow.png'></image>
+      </navigator>
+    </view>
+    
+
+    <view bindtap='user_exit' class="nav_sug">
+      <image class='nav_sug_img' style='width:50rpx;height:50rpx;' src='https://lht.she985.com/themes/haohai2017/images/icon_exit.png'></image>
+      <text style='margin-left:10rpx;'>注销登录</text>
+      <image class='nav_sug_personal_arrow' src='/static/images/icon/personal_arrow.png'></image>
+    </view>
+
+    
+    <view class="nav_sug">
+      <button open-type="contact" class='nemu_contact'>
+        <image class='nav_sug_img' src='https://lht.she985.com/xcx/images/user_kefu2.png'></image>
+        <text>联系客服</text>
+        <image class='nav_sug_personal_arrow' src='/static/images/icon/personal_arrow.png'></image>
+      </button>
+    </view>
+
+
+</view>

@@ -1,0 +1,165 @@
+<!--index.wxml-->
+<view class="container">
+
+    <view class='content'>
+        <image class='image' data-good-id="{{goods_info.goods_id}}" bindtap="onViewGoodInfo"
+               src="{{goods_info.goods_thumb}}"></image>
+
+        <view class='good_content'>
+            <text class="good_text" data-good-id="{{goods_info.goods_id}}" bindtap="onViewGoodInfo">
+                {{goods_info.goods_name}}
+            </text>
+
+            <view class='title_cul'>
+                <view class='money_row'>
+                    <text class='buy_num'>{{goods_info.team_num}}人团</text>
+                    <text class='yuan'>￥</text>
+                    <text class='money'>{{goods_info.team_price}}</text>
+                </view>
+                <button class='button_buy' bindtap="onViewGoodInfo" data-good-id="{{goods_info.goods_id}}">点击抢购</button>
+
+            </view>
+        </view>
+
+    </view>
+    <view class='middle'>
+        <text class='middle_text'>还差{{customer_num_left}}人，转运体验好，运费拼着买更划算</text>
+    </view>
+
+
+    <view class='users_content'>
+
+
+        <view class='image_rows' wx-if='{{users_num<=7}}'>
+
+            <view class='image_view' wx:for="{{users}}" wx:for-index="idx" wx:for-item="user">
+
+                <image class='user_image' src='{{user.headImageUrl}}'></image>
+                <view class='text_tuanzhang' wx-if='{{idx==0}}'>
+                    <text>团长</text>
+                </view>
+
+            </view>
+
+        </view>
+
+        <view class='images' wx-if='{{users_num>7}}'>
+            <view class='image_rows_big' wx-if='{{users_num>7}}'>
+
+                <view class='image_view_big' style='left:{{idx*50}}rpx;' wx:for="{{users}}" wx:for-index="idx"
+                      wx:for-item="user">
+
+                    <image class='user_image' src='{{user.headImageUrl}}'></image>
+                    <view class='text_tuanzhang' wx-if='{{idx==0}}'>
+                        <text>团长</text>
+                    </view>
+
+                </view>
+
+            </view>
+
+        </view>
+
+
+        <view class='time_rows'>
+            <text class='pingdan_text'>拼单时间仅剩</text>
+            <text class='time_text'>{{countDown.day}} {{countDown.hou}}:{{countDown.min}}:{{countDown.sec}}</text>
+        </view>
+        <button wx:if="{{is_loding_pay > 0 && team_info.team_status == 0}}" bindtap="toPay" class='button_vid'>您已参团,待支付</button>
+
+        <button bindtap='add_tuan' wx:elif="{{is_teammen == 0 && is_loding_pay == 0 && team_info.team_status == 1}}"
+                class='button_vid'>我也要参团
+        </button>
+        <button class='button_vid' wx:elif="{{team_info.team_status == 2}}">拼团成功，请联系微信客服！</button>
+        <button class='button_vid'  open-type='{{openType}}' wx:else>{{opBtnText}}</button>
+        <view class='content_end'>
+            <text class='text_end'>分享到3个群后，拼成率高达98%</text>
+        </view>
+
+    </view>
+
+
+    <view class="footer_botton">
+        <view class="footer_cart_botton">
+            <navigator open-type="switchTab" url="/pages/index/index">
+                <image src="/static/images/icon/index-38d3d45c2c.png"></image>
+                <text>首页</text>
+            </navigator>
+        </view>
+
+        <view bindtap='goods_collect' data-goods_id='{{goods_info.goods_id}}' class="footer_cart_botton">
+            <image wx:if="{{user_is_collect == 0}}" src="/static/images/icon/no_liked2.png"></image>
+            <image wx:else src="/static/images/icon/is_liked2.png"></image>
+            <text>收藏</text>
+        </view>
+
+        <button open-type="contact" MsgType="miniprogrampage" send-message-title="{{goods_info.goods_name}}"
+                send-message-img="{{item}}" show-message-card="true" session-from="weapp"
+                class="footer_cart_botton_contact">
+            <image src="/static/images/icon/message-fb3e83c325.png"></image>
+            <text>客服</text>
+        </button>
+
+        <block wx:if="{{goods_info.is_team == 1 && flow_type == 'none' && goods_info.is_miao == 0}}">
+            <view bindtap="is_show_pre_fun" data-flow_type='tuan' class="attr_to_caty2" type="warn">
+                <text>￥{{goods_info.team_price}}元/件</text>
+                <text>{{goods_info.team_num}}人团</text>
+            </view>
+            <view bindtap="is_show_pre_fun" data-flow_type='one' class="attr_to_caty" type="warn">
+                <text>￥{{goods_info.shop_price}}元/件</text>
+                <text>单独购</text>
+            </view>
+        </block>
+
+        <block wx:if="{{flow_type == 'tuan'}}">
+            <view style='width:60%;' bindtap="flow_done" data-flow_type='tuan' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>下一步</text>
+            </view>
+        </block>
+
+        <!--秒杀产品,加入购物车并跳转到购物车页面  -->
+        <block wx:if="{{flow_type == 'one' && goods_info.is_miao == 1}}">
+            <view style='width:60%;' bindtap="flow_done" data-flow_done_type='liji' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>确定</text>
+            </view>
+        </block>
+
+        <block wx:if="{{flow_type == 'one' && goods_info.is_miao == 0}}">
+            <view bindtap="flow_done" data-flow_done_type='liji' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>立即购买</text>
+            </view>
+            <view bindtap="flow_done" data-flow_done_type='add_cart' class="attr_to_caty" type="warn">
+                <text style='line-height: 80rpx;'>加入购物车</text>
+            </view>
+        </block>
+
+        <!--单品的底部菜单  -->
+        <block wx:if="{{goods_info.is_mall == 1 && goods_info.is_team == 0 && goods_info.is_miao == 0}}">
+            <view bindtap="is_show_pre_fun" data-flow_type='one' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>立即购买</text>
+            </view>
+            <view bindtap="is_show_pre_fun" data-flow_type='one' class="attr_to_caty" type="warn">
+                <text style='line-height: 80rpx;'>加入购物车</text>
+            </view>
+        </block>
+
+        <!-- 秒杀产品的底部菜单  -->
+        <block wx:if="{{goods_info.is_mall == 1 && goods_info.is_team == 0 && goods_info.is_miao == 1}}">
+            <view wx:if="{{goods_info.sort_order == 1}}" style='width:60%;' bindtap="is_show_pre_fun"
+                  data-flow_type='one' class="attr_to_caty2" type="warn">
+                <text style='line-height: 80rpx;'>马上购买</text>
+            </view>
+
+            <view wx:if="{{goods_info.sort_order == 2}}" style='width:60%;' class="attr_to_caty3" type="warn">
+                <text style='line-height: 80rpx;'>尚未开始</text>
+            </view>
+
+            <view wx:if="{{goods_info.sort_order == 3}}" style='width:60%;' class="attr_to_caty3" type="warn">
+                <text style='line-height: 80rpx;'>已经结束</text>
+            </view>
+        </block>
+
+    </view>
+
+
+</view>

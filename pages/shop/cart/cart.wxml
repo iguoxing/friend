@@ -1,0 +1,77 @@
+<view class="cart_body">
+
+<block wx:if="{{cart_list == 'null'}}">
+  <view class="cart_null">
+    <image src="/static/images/icon/shopping_cart_empty.png"></image>
+    <text>{{tis}}</text>
+    <navigator url="{{tisurl}}" open-type="switchTab">
+      <button class="tis2_button" type="warn">{{tis2}}</button>
+    </navigator>
+  </view>
+</block>
+<block wx:else>
+
+<view class="borderh4"></view>
+
+<checkbox-group bindchange="changebox">
+<block wx:for="{{cart_list}}" wx:key="cart_list">
+
+    <view class="goods_list">
+      <label for="a-{{item.rec_id}}" class="cart_checkbox {{item.checked}}">
+        <checkbox style='display:none;' id="a-{{item.rec_id}}" value="{{item.rec_id}}" checked="{{item.checked}}"></checkbox>
+      </label>
+
+      <image class="cart_list_image" src="{{item.goods_thumb}}"></image>
+
+      <view class="goods_one">
+      
+        <view wx:if="{{edit_rec_id != item.rec_id}}">
+          <text class="goods_title">{{item.goods_name}}</text>
+          <text class="goods_attr">{{item.goods_attr}}</text>
+        </view>
+        <view wx:else class="num">
+          <view class="xm-input-number">
+            <text class="number_text">购买数量：</text>
+            <view data-cart_id="{{item.rec_id}}" bindtap="num_jian" class="num_button"></view>
+            
+            <view class="num_input">
+            <input data-cart_id="{{item.rec_id}}" value="{{item.goods_number}}" bindchange="num_change" name="num"></input>
+            </view>
+
+            <view data-cart_id="{{item.rec_id}}" bindtap="num_jia" class="num_button2"></view>
+
+            <view data-cart_id="{{item.rec_id}}" bindtap="del_goods" class="del"></view>
+          </view>
+        </view>
+
+        <text class="goods_price">￥ {{item.goods_price}}元 * {{item.goods_number}}件</text>
+        <button wx:if="{{edit_rec_id != item.rec_id}}" class="edit_button" bindtap="edit_cart_goods" data-edit_rec_id="{{item.rec_id}}" type="warn" plain="1" size="mini">编辑</button>
+        <button wx:if="{{edit_rec_id == item.rec_id}}" class="edit_button" bindtap="edit_cart_goods_ok" type="primary" plain="1" size="mini">完成</button>
+
+      </view>
+
+    </view>
+  
+
+  <view class="borderh4">
+  </view>
+
+</block>
+</checkbox-group>
+
+</block>
+
+<view class="cart_footer">
+  <view bindtap="quanxuan_botton_tap" class="cart_checkbox quanxuan {{is_quanxuan == 1 ? 'checked':''}}"></view>
+  <text bindtap="quanxuan_botton_tap" class="quanxuan_text">全选</text>
+  <text class="cart_footer_texta">总计:￥{{sum_goods_price}}</text>
+  <text class="cart_footer_textb">(不含运费)</text>
+  <navigator url="../flow/flow">
+  <view class="cart_footer_button">去结算</view>
+  </navigator>
+</view>
+
+<view style="height:{{borderh10}}px" class="borderh10">
+</view>
+
+</view>

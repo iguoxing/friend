@@ -1,0 +1,250 @@
+.supplier_image{
+  height: 64rpx;
+  width: 64rpx;
+  float: left;
+}
+
+.cart_body{
+  background: #f5f5f5;
+}
+
+.supplier_text{
+  font-size: 11pt;
+  float: left;
+  line-height: 80rpx;
+  color: #000000;
+  font-weight: bold;
+}
+
+.cart_null image{
+  height: 300rpx;
+  width: 300rpx;
+  display: block;
+  margin: 20rpx auto;
+}
+.cart_null text{
+  margin-top: 50rpx;
+  display: block;
+  color: #b2b2b2;
+  text-align: center;
+}
+
+.cart_null button{
+  width: 60%;
+  margin-top: 50rpx;
+}
+
+.supplier{
+  margin-left: 20rpx;
+  height: 80rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+.cart_checkbox{
+  width: 50rpx;
+  height: 50rpx;
+  z-index: 9;
+  vertical-align:middle;
+  display: inline-block;
+  margin-left:20rpx;
+  margin-right: 10rpx;
+  background: url('http://www.hengda365.com/xcx/images/shop-cart.png') no-repeat 0 0;
+  background-size: 60px 120px;
+  float: left;
+  margin-top: 90rpx;
+}
+.checked{
+  background-position: -30px 0;
+}
+.quanxuan{
+  margin-top: 25rpx;
+}
+
+.quanxuan_text{
+  float: left;
+  line-height: 100rpx;
+  font-size: 30rpx;
+}
+
+.cart_list_image{
+    width: 136rpx;
+    height: 136rpx;
+    margin-top: 30rpx;
+    border: #e0e0e0 1px solid;
+    display: inline-block;
+    float: left;
+}
+.goods_list{
+  height: 230rpx;
+  background: #fff;
+}
+.goods_one{
+  float: left;
+  width: 65%;
+}
+.goods_title{
+  display: inline-block;
+  font-size: 25rpx;
+  overflow: hidden;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  height: 60rpx;
+}
+.goods_attr{
+  font-size: 23rpx;
+  margin-left: 10rpx;
+  color: #b2b2b2;
+  display: inline-block;
+  line-height: 23rpx;
+  height: 46rpx;
+}
+.goods_price{
+  font-size: 25rpx;
+  margin-left: 10rpx;
+  color: #b2b2b2;
+  display: inline-block;
+  line-height: 23rpx;
+  height: 46rpx;
+  color: red;
+}
+.num{
+  display: block;
+  clear: both;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  height: 60rpx;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.number_text{
+  font-size: 30rpx;
+  line-height: 60rpx;
+  float: left;
+}
+
+.num_button{
+  height: 52rpx;
+  font-size: 20pt;
+  width: 52rpx;
+  background: url('http://www.hengda365.com/xcx/images/shop-cart.png') no-repeat 4px -55px;
+  background-size: 60px;
+  border-radius:0;
+  text-align: center;
+  line-height: 50rpx;
+  margin: 0rpx 0 0 10rpx;
+  float: left;
+  border: 1px solid #e0e0e0;
+}
+
+
+.num_input{
+  float: left;
+  width: 52rpx;
+  height: 52rpx;
+  margin: 0rpx 0 0 0;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  line-height: 25px;
+  border-top: 1px solid #e0e0e0;
+  
+}
+
+.num_button2{
+  height: 52rpx;
+  font-size: 20pt;
+  width: 52rpx;
+  background: url('http://www.hengda365.com/xcx/images/shop-cart.png') no-repeat -26px -27px;
+  background-size: 60px;
+  border-radius:0;
+  text-align: center;
+  line-height: 50rpx;
+  margin: 0rpx 0 0 0;
+  float: left;
+  border: 1px solid #e0e0e0;
+}
+.price{
+  height: 120rpx;
+  width: 130rpx;
+  float: right;
+  display: block;
+  margin: 10rpx 10rpx 0 20rpx;
+}
+.mar_price{
+  font-size: 9pt;
+  text-decoration: line-through;
+  color: #999;
+  display: block;
+}
+.shop_price{
+  display: block;
+  font-size: 10pt;
+  color: #17b2e0;
+  margin-top: 5rpx;
+}
+.del{
+  color: #999;
+  display: block;
+  background: url('http://ghwvip.com/mobile/themesmobile/elm8com_mobile/images/icoshanchu.jpg') no-repeat;
+  width: 60rpx;
+  height: 62rpx;
+  float: right;
+  margin-right: 50rpx;
+  background-size: cover;
+}
+.borderh4{
+  clear: both;
+  height: 20rpx;
+  width: 100%;
+  background: #f5f5f5;
+}
+
+.edit_button{
+  float: right;
+}
+
+.cart_footer{
+  border-top:1px solid #f2f2f2;
+  border-bottom:1px solid #f2f2f2;
+  position: fixed;
+  bottom: 0px;
+  height: 100rpx;
+  width: 100%;
+  z-index: 99;
+  background: #fff;
+}
+.cart_footer_texta{
+  display: block;
+  font-size: 25rpx;
+  line-height: 100rpx;
+  float: left;
+  margin-left: 40rpx;
+}
+.cart_footer_textb{
+  font-size: 9pt;
+  line-height: 100rpx;
+  float: left;
+  color: #b2b2b2;
+}
+
+.cart_footer_button{
+  float: right;
+  height: 100rpx;
+  width: 250rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 100rpx;
+  font-size: 40rpx;
+  border-radius: 0;
+  background: #fd537b;
+}
+.borderh1{
+  height: 100rpx;
+  width: 100%;
+}
+.tis2_button{
+  background: #fd537b !important;
+}
+
+.borderh10{
+  width: 100%;
+}

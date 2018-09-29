@@ -1,0 +1,306 @@
+.tis{
+  width: 80%;
+  margin: 10rpx auto;
+  background:#17b2e0;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  height: 0px;
+}
+.slide-image{
+  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+}
+
+
+.goods_name{
+  font-size: 13pt;
+  display: block;
+  text-align: center;
+  margin: 50rpx 10rpx 20rpx 20rpx;
+}
+.ht_block{
+  display: block;
+  height: auto;
+}
+
+.ht_text{
+  text-indent:2em;
+  font-size: 11pt;
+  color: #353535;
+  line-height: 20pt;
+}
+.ht_images{
+  display: block;
+}
+
+.menu_a{
+  width: 70%;
+  height: 80rpx;
+  margin: 50rpx auto;
+
+}
+
+.borderh1{
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.menu_a image{
+  height: 60rpx;
+  width: 70rpx;
+  float: left;
+  padding: 10rpx;
+  display: inline-block;
+  
+  border-radius: 50%;
+  margin-left: 30rpx;
+}
+
+.goods_collect_{
+  background: #b2b2b2;
+}
+.goods_collect_red{
+  background: #fff;
+  border: 1px solid #17b2e0;
+}
+
+.to_cart{
+  font-size: 11pt;
+  background: #6192ff;
+  height: 80rpx;
+  width: 70%;
+  border-radius:20px;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  float: left;
+}
+
+.goods_give{
+  width: 95%;
+  margin: 0 20rpx 20rpx 20rpx;
+  
+}
+.goods_give view{
+  font-size: 9pt;
+  display: inline-block;
+  padding: 5rpx;
+  color: #fff;
+  background: #17b2e0; 
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+}
+
+.goods_brief_title{
+  font-size: 13pt;
+  text-align: center;
+  display: block;
+  padding-top:20rpx; 
+  clear: both;
+}
+.goods_brief1{
+  height: 100rpx;
+  width: 49%;
+  float: left;
+}
+.goods_brief2{
+  height: 100rpx;
+  width: 50%;
+  float: left;
+}
+.goods_brief_text{
+  font-size: 11pt;
+  color: #888888;
+  text-align: center;
+  display: block;
+  margin: 10rpx auto;
+}
+
+.show_view{
+  background: #FFF;
+  height: 95%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  display: none;
+}
+.show_cancel{
+  height: 50px;
+  width: 26px;
+  background: url('http://ececho.cn/mobile/themesmobile/68ecshopcom_mobile/images/flow/c_cancel.png') center no-repeat;
+  background-size: 16px 16px;
+  position: absolute;
+  right: 5px;
+  margin: 0;
+  margin-right: 10px;
+}
+.show_view_goods_thumb{
+  float: left;
+  width: 125px;
+  height: 130px;
+  border: #e5e5e5 1px solid;
+  border-radius: 4px;
+  padding: 5px;
+  background: #FFF;
+  margin-top: -15px;
+  margin-left: 15px;
+}
+.show_view_texta{
+  margin-left: 5px;
+  margin-top: 15px;
+  float: left;
+  overflow: hidden;
+  width: 50%;
+}
+.show_view_texta text{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  color: #666;
+  font-size: 11pt;
+  line-height: 150%;
+  margin-bottom: 5px;
+}
+.border_h6{
+  display: block;
+  height: 1px;
+  width: 100%;
+  clear: both;
+}
+.border_h5{
+  display: block;
+  height: 1px;
+  width: 100%;
+  clear: both;
+  padding-top: 10rpx;
+  border-bottom: 1px solid #b2b2b2;
+}
+.attr_title{
+  font-size: 16px;
+  line-height: 30px;
+  color: #666;
+  float: left;
+  margin-top: 5px;
+  display: inline;
+  overflow: hidden;
+  margin-left: 30rpx;
+  
+}
+
+.attr_item{
+  font-size: 11pt;
+  line-height: 20px;
+  color: #666;
+  display: inline-block;
+  margin-top: 5px;
+  overflow: hidden;
+  margin-left: 30rpx;
+  border: 1px solid #b2b2b2;
+  border-radius: 5px;
+  padding: 5px;
+  float: left;
+}
+.attr_selsec{
+  display: none;
+}
+.attr_item_select{
+  background: #17b2e0;
+  color: #fff;
+  border: 1px solid #17b2e0;
+}
+
+.num_item1{
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.ui-number{
+  border: 1px solid #ddd9da;
+  overflow: hidden;
+  height: 30px;
+  display: block;
+  width: 100px;
+  margin-top: 10px;
+  margin-left: 30rpx;
+  float: left;
+}
+.decrease{
+  display: inline-block;
+    background: none;
+    font-size: 24px;
+    line-height: 30px;
+    border: 0;
+    width: 30px;
+    float: left;
+    height: 30px;
+    color: #F8849C;
+    border-right: 1px solid #ddd9da;
+    text-indent: -9999px;
+    background: url('http://ececho.cn/mobile/themesmobile/68ecshopcom_mobile/images/flow/shop-cart.png') no-repeat 6px -25px;
+    background-size: 60px;
+}
+.num{
+  display: inline-block;
+  border: 0;
+  width: 40px;
+  height: 30px;
+  float: left;
+  text-align: center;
+  font-size: 12px;
+  line-height: 30px;
+  color: #666;
+  font-size: 20px;
+  text-align: center;
+}
+.increase{
+  display: inline-block;
+  border: 0;
+  border-left: 1px solid #ddd9da;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  font-size: 24px;
+  line-height: 30px;
+  color: #F8849C;
+  background: url('http://ececho.cn/mobile/themesmobile/68ecshopcom_mobile/images/flow/shop-cart.png') no-repeat -23px -25px;
+  background-size: 60px;
+  text-indent: -9999px;
+  z-index: 999;
+}
+.to_cart_tis{
+  background: #6192ff;
+  position: fixed;
+  bottom: 0px;
+  height: 200rpx;
+  width: 100%;
+  font-size: 14pt;
+  text-align: center;
+  color: #fff;
+
+  font-weight:bold;
+  padding-top: 20rpx;
+  border-top: 1px solid #ddd9da;
+}
+
+.to_cart_tis text{
+  display: block;
+}
+
+.to_cart_button{
+  display: block;
+  float: right;
+  margin: 40rpx 20% 20rpx 0;
+}
+.to_cart_button2{
+  display: block;
+  float: left;
+  margin: 40rpx 0 20rpx 20%;
+}
+.attr_to_caty{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}

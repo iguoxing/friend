@@ -1,0 +1,142 @@
+<view>
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}" wx:key="imglist">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" height="150"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="header" style="{{headerstyle}}">
+
+  <view class="nav">
+    <form bindsubmit="search">
+
+          <view class="section">
+            <icon type="search" size="16" class="searchicon" />
+            <input onchange="onchangesearch" placeholder="{{searchplaceholder}}" type='text' id="searchinput" />
+          </view>
+      <navigator url="/pages/shop/cart/cart">
+        <image src="../../static/images/icon/shopping_cart.png" class="top_icon2" />
+        <text wx:if="{{cart_number!=0}}" class="cart_number">{{cart_number}}</text>
+      </navigator>
+    </form>
+  </view>
+
+</view>
+
+<view class="FrameK">
+    <view class="mBottom">
+      <navigator url="/pages/shop/catalog/catalog">
+          <view class="menu_2">
+              <view class="mTu">
+                <image src="/static/images/icon/shop_menu.png"></image>
+              </view>
+              <text class="mBiaoTi">商品分类</text>
+          </view>
+        </navigator>
+
+        <navigator url="/pages/shop/stores/stores">
+          <view class="menu_2">
+              <view class="mTu">
+                <image src="/static/images/icon/shop_stores.png"></image>
+              </view>
+              <text class="mBiaoTi">店铺街</text>
+          </view>
+        </navigator>
+
+        <navigator url="/pages/shop/cart/cart" open-type="reLaunch">
+          <view class="menu_2">
+              <view class="mTu">
+                <image src="/static/images/icon/shop_cart.png"></image>
+              </view>
+              <text class="mBiaoTi">购物车</text>
+          </view>
+        </navigator>
+
+        <navigator url="/pages/user/user" open-type="switchTab">
+          <view class="menu_2">
+              <view class="mTu">
+                <image src="/static/images/icon/shop_user.png"></image>
+              </view>
+              <text class="mBiaoTi">个人中心</text>
+          </view>
+        </navigator>
+
+    </view>
+
+    <view class="news">
+      <image src="/static/images/icon/Headlines.png"></image>
+      <text class="new_fgx">|</text>
+      <text class="new_text">{{user_notice}}</text>
+      
+    </view>
+
+</view>
+
+<view class="borderh6"></view>
+
+<view class="foor">
+  <text class="foor_number"></text>
+  <text class="foor_title"> 促销商品</text>
+</view>
+
+
+<block wx:for="{{promoter_list}}" wx:key="promoter_list">
+  <navigator url="/pages/goods/goods?goods_id={{item.goods_id}}">
+    <view class="goods_list">
+      <image src="{{item.goods_thumb}}"></image>
+      <text class="goods_title">{{item.goods_name}}</text>
+      <text class="goods_pic">￥{{item.shop_price}}</text>
+      <text class="goods_supplier">{{item.supplier_name}}</text>
+    </view>
+  </navigator>
+</block>
+
+<view class="borderh6"></view>
+
+<view class="foor">
+  <text class="foor_number"></text>
+  <text class="foor_title"> 热卖商品</text>
+</view>
+
+<block wx:for="{{hot_list}}" wx:key="promoter_list">
+<navigator url="/pages/goods/goods?goods_id={{item.goods_id}}">
+  <view class="goods_list">
+    <image src="{{item.goods_thumb}}"></image>
+    <text class="goods_title">{{item.goods_name}}</text>
+    <text class="goods_pic">￥{{item.shop_price}}</text>
+    <text class="goods_supplier">{{item.supplier_name}}</text>
+  </view>
+</navigator>
+</block>
+
+<view class="borderh6"></view>
+<view class="foor">
+  <text class="foor_number"></text>
+  <text class="foor_title"> 为您推荐</text>
+</view>
+<view class="blockh1"></view>
+
+<scroll-view scroll-y="true" scroll-left="1" class="scroll_view" bindscrolltolower="load_goods_list">
+  <block wx:for="{{best_list}}" wx:key="promoter_list">
+  <navigator url="/pages/goods/goods?goods_id={{item.goods_id}}">
+    <view class="goods_list">
+      <image src="{{item.goods_thumb}}"></image>
+      <text class="goods_title">{{item.goods_name}}</text>
+      <text class="goods_pic">￥{{item.shop_price}}</text>
+      <text class="goods_supplier">{{item.supplier_name}}</text>
+    </view>
+  </navigator>
+  </block>
+
+  <view class="load_footer">
+  {{load_footer}}
+  </view>
+
+</scroll-view>
+
+
+
+</view>

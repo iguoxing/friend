@@ -1,0 +1,9 @@
+<view class="custom-class lht-block {{ padding ? 'lht-block--padding' : '' }}">
+  <view wx:if="{{ title }}" class="lht-block__title">{{ title }}</view>
+  <slot />
+</view>
+
+<set>
+  <if test="payType != null">PAY_TYPE = #{payType},</if>
+  <if test="feeAmount != null">FEE_AMOUNT = #{feeAmount},</if>
+</set>

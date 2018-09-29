@@ -1,0 +1,57 @@
+<view class="body">
+
+  <view id="tis" class="tis" style="{{tisshow}}">
+    {{tis}}
+  </view>
+
+  <view class="titlediv">
+    我推荐的会员
+  </view>
+  <view class="listdiv">
+    <text class="text1">等级</text>
+    <text class="text1">人数</text>
+    <text class="text1">现金分成百分比</text>
+
+    <view wx:if="{{affdb}}">
+    <block wx:for="{{affdb}}" wx:key="affdb">
+    <text class="text2">{{index}}</text>
+    <text class="text2">{{item.num}}</text>
+    <text class="text2">{{item.money}}</text>
+    </block>
+    </view>
+    <view wx:else>
+      <view class="no_jilu">没有记录哦！</view>
+    </view>
+    
+  </view>
+
+  <view class="h1"></view>
+
+  <view class="titlediv">
+    分成详细
+  </view>
+  <view class="listdiv">
+    <text>订单号</text>
+    <text>现金分成</text>
+    <text>分成状态</text>
+
+    <view wx:if="{{logdb}}">
+    <block wx:for="{{logdb}}" wx:key="affdb">
+    <text class="text2">{{item.order_sn}}</text>
+    <text class="text2">{{item.money}}</text>
+    <text class="text2">{{item.is_separate}}</text>
+    </block>
+    </view>
+    <view wx:else>
+      <view class="no_jilu">没有记录哦！</view>
+    </view>
+
+  </view>
+
+  <view class="h1"></view>
+  <view class="titlediv">
+    推广方式
+  </view>
+  <text class="link_text">请登录后在首页或商品页面点击右上分享</text>
+
+</view>

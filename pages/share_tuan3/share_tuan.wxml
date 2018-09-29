@@ -1,0 +1,192 @@
+<!--pages/share_tuan/share_tuan.wxml-->
+<view class="tm">
+    <view class="tuanDetailWrap">
+        <view class="td_img">
+            <navigator url='/pages/goods/goods?goods_id={{goods_info.goods_id}}'>
+                <image src="{{goods_info.goods_thumb}}"></image>
+            </navigator>
+        </view>
+        <view class="td_info">
+            <navigator url='/pages/goods/goods?goods_id={{goods_info.goods_img}}'>
+                <text class="td_name">
+                    {{goods_info.goods_name}}
+                </text>
+            </navigator>
+            <view class="td_mprice">
+                <text>{{goods_info.team_num}}人团</text>
+                <text class='td_mprice_text'>￥{{goods_info.team_price}}</text>
+            </view>
+            <view bindtap='show_explain_tuan' class='explain_tuan tremble'></view>
+            <view class='share_tuan_img' wx:if="{{show_explain_tuan}}">
+                <image bindtap='show_explain_tuan'
+                       src="https://lht.she985.com/themes/haohai2017/images/share-tuan.png"></image>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="pp">
+<view class="pp_users">
+
+    <!--循环参团用户  -->
+    <block wx:for="{{team_mem}}" wx:key="team_mem">
+        <view wx:if="{{index == 0}}" class="pp_users_item" style='position: relative;'>
+            <image src="{{item.headimg}}"></image>
+            <view class='pp_users_normal'></view>
+        </view>
+        <view class='pp_users_item' wx:else>
+            <image src="{{item.headimg}}"></image>
+        </view>
+    </block>
+    <!--循环空白用户占位  -->
+    <block wx:for="{{team_d_num_arr}}" wx:key="team_d_num_arr">
+        <view class="pp_users_item">
+            <image src="https://lht.she985.com/themes/haohai2017/images/avatar_4_64.png"></image>
+        </view>
+    </block>
+
+</view>
+</view>
+<view class='tips'>
+<view class="tips_succ {{team_info.team_status == 3 ? 'tips_err':team_info.team_status == 4 ? 'tips_err':''}}"></view>
+<text wx:if="{{is_teammen == 1 && is_loding_pay == 0 && team_info.team_status == 1}}">转运体验不错，来啊~拼团省个运费</text>
+<text wx:if="{{is_teammen == 0 && is_loding_pay == 0 && team_info.team_status == 1}}">快来入团吧就差你了</text>
+<text wx:if="{{is_loding_pay > 0 && team_info.team_status == 0}}">您已参团,待支付 ></text>
+<text wx:if="{{team_info.team_status == 2}}">拼团成功，请联系微信客服！</text>
+<text wx:if="{{team_info.team_status == 3}}">拼团失败！</text>
+<text wx:if="{{team_info.team_status == 4}}">拼团失败！</text>
+<button open-type='share' class='tips_share_button'></button>
+</view>
+<view class="pp_box">
+<view class="pp_tips" id="flag_1_a">运费拼着买更划算</view>
+
+<view wx:if="{{team_info.team_status ==1}}" class="pp_tips" id="flag_0_a">还差<text>{{team_info.d_num}}</text>人，一起来老友记海淘吧~
+</view>
+
+<view wx:if="{{team_info.team_status == 1}}" class="pp_state" id="flag_0_b">
+    <view class="pp_time">
+        <text id="time" class="pp_time_text">还剩<text class="tcd-h">{{tian}}</text>天<text class='time_text'>{{hr}}</text>时<text
+                class='time_text'>{{min}}</text>分<text class='time_text'>{{sec}}</text>秒
+        </text>
+        <text class="pp_time_text">结束</text>
+    </view>
+    <view class='pp_state_fgx'></view>
+</view>
+</view>
+
+<view class="pp_list">
+
+<block wx:for="{{team_mem}}" wx:key="team_mem">
+    <block wx:if="{{index == 0}}">
+        <view class="pp_list_item">
+            <view class='shanjiao'></view>
+            <image class="pp_list_avatar" alt="" src="{{item.headimg}}"></image>
+            <view class="pp_list_info" id="pp_list_info">
+                <text class="pp_list_name">团长</text>
+                <text class="pp_list_time">{{item.date}} 开团</text>
+            </view>
+        </view>
+    </block>
+
+    <block wx:else>
+        <view class="pp_list_item">
+            <image class="pp_list_avatar" alt="" src="{{item.headimg}}"></image>
+            <view class="pp_list_info" id="pp_list_info">
+                <text class="pp_list_name"></text>
+                <text class="pp_list_time">{{item.date}} 参团</text>
+            </view>
+        </view>
+    </block>
+</block>
+
+<view wx:if="{{team_info.team_status == 1}}" id="chamemeber" class="pp_list_blank">
+    <view class='chamemeber_touxiang'></view>参团前，务必点击商品了解参团流程或咨询客服
+</view>
+<view wx:if="{{team_info.team_status == 1}}" id="chamemeber" class="pp_list_blank">
+    <view class='chamemeber_touxiang'></view>分享团购到海淘群或发布到广场，增加成团概率
+</view>
+
+</view>
+
+<view class="step">
+<view class="step_hd">
+    <text>拼团玩法</text>
+    <view class='step_more'>
+        <view class='right_icon'></view>
+        <navigator url='/pages/tuan_rule/tuan_rule'>查看详情</navigator>
+    </view>
+</view>
+<view class="step_list">
+
+    <view class="step_item step_item_on">
+        <view class="step_num">1</view>
+        <view class="step_detail">
+            <view class="step_tit">
+                <text>选择</text>
+                <text>心仪商品</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="step_item">
+        <view class="step_num">2</view>
+        <view class="step_detail">
+            <view class="step_tit">
+                <text>支付开团</text>
+                <text>或参团</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="step_item">
+        <view class="step_num">3</view>
+        <view class="step_detail">
+            <view class="step_tit">
+                <text>等待好友</text>
+                <text>参团支付</text>
+            </view>
+        </view>
+    </view>
+
+    <view class="step_item">
+        <view class="step_num">4</view>
+        <view class="step_detail">
+            <view class="step_tit">
+                <text>达到人数</text>
+                <text>团购成功</text>
+            </view>
+        </view>
+    </view>
+
+</view>
+</view>
+
+<view class='fixopt_zhanwei'></view>
+
+<view class="fixopt">
+<view class="fixopt_item fixopt_item2">
+    <navigator url='/pages/index/index' open-type='switchTab'>
+        <view class="fixopt_home">
+            <view class='fixopt_home_icon'></view>
+        </view>
+    </navigator>
+
+    <button wx:if="{{is_teammen == 1 && is_loding_pay == 0 && team_info.team_status == 1}}" class='fixopt_btn'>
+        还差{{team_info.d_num}}人组团成功
+    </button>
+    <navigator url='/pages/user/order_list/order_list'>
+        <button wx:if="{{is_loding_pay > 0 && team_info.team_status == 0}}" class='fixopt_btn'>您已参团,待支付 ></button>
+    </navigator>
+    <button bindtap='add_tuan' wx:if="{{is_teammen == 0 && is_loding_pay == 0 && team_info.team_status == 1}}"
+            class='fixopt_btn'>我也要参团
+    </button>
+
+    <button class='fixopt_btn' wx:if="{{team_info.team_status == 2}}">拼团成功，请联系微信客服！</button>
+    <navigator url='/pages/goods/goods?goods_id={{goods_info.goods_id}}'>
+        <button class='fixopt_btn' wx:if="{{team_info.team_status == 3}}">我也开个团,点击回商品详情</button>
+    </navigator>
+    <navigator url='/pages/goods/goods?goods_id={{goods_info.goods_id}}'>
+        <button class='fixopt_btn' wx:if="{{team_info.team_status == 4}}">我也开个团,点击回商品详情</button>
+    </navigator>
+</view>
+</view>

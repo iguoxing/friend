@@ -1,0 +1,103 @@
+<scroll-view scroll-x="true">
+  <view class='nav_fixed'>
+    <text bindtap='change_nav' data-nav_id='0' class="{{nav_id == 0 ? 'cur' : ''}}">全部</text>
+    <text bindtap='change_nav' data-nav_id='100' class="{{nav_id == 100 ? 'cur' : ''}}">待付款</text>
+    <text bindtap='change_nav' data-nav_id='102' class="{{nav_id == 102 ? 'cur' : ''}}">待核销</text>
+    <text bindtap='change_nav' data-nav_id='180' class="{{nav_id == 180 ? 'cur' : ''}}">待发货</text>
+    <text bindtap='change_nav' data-nav_id='120' class="{{nav_id == 120 ? 'cur' : ''}}">待收货</text>
+    <text bindtap='change_nav' data-nav_id='999' class="{{nav_id == 999 ? 'cur' : ''}}">已完成</text>
+  </view>
+</scroll-view>
+
+<block wx:for="{{order_list}}" wx:key="order_list">
+
+<view wx:if="{{order_list.length > 0}}" class='order'>
+  <view class="order_hd">订单状态<text>{{item.order_status}}</text></view>
+  <view class="order_bd">
+  
+  
+   <view class="order_glist"> 
+   <navigator url='/pages/user/order_detail/order_detail?order_id={{item.order_id}}'>
+   <block wx:for="{{item.goods_list}}" wx:key="goods_list" wx:for-item="goods_list">
+    <view class="order_goods">
+     <view class="order_goods_img"> 
+      <image src="https://lht.she985.com/{{goods_list.goods_thumb}}"></image>
+     </view> 
+     <view class="order_goods_info"> 
+      <view class="order_goods_name">
+       {{goods_list.goods_name}}
+      </view> 
+      <view class="order_goods_attr"> 
+       <view class="order_goods_attr_item">{{goods_list.goods_attr}}</view> 
+       <view class="order_goods_attr_item"> <text class="order_goods_price">￥{{goods_list.goods_price}} <text> X{{goods_list.goods_number}}</text></text></view> 
+      </view> 
+     </view> 
+    </view> 
+    </block>
+    </navigator>
+
+    <view class="order_ft"> 
+     <view class="order_total"> 
+      <text class="order_total_info">共{{item.goods_num}}件商品</text> 
+      <text class="order_price">总金额：<text>￥{{item.total_fee}}</text></text> 
+     </view>
+     <view class="order_opt"> 
+      <view class="order_btn"> 
+       <text wx:if="{{item.team_status_text != 'null'}}">{{item.team_status_text}}</text>
+       <text bindtap="order_edit" data-order_id="{{item.order_id}}" data-edit="order_pay" wx:if="{{item.is_pay == 1}}">微信支付</text>
+       <text bindtap="order_edit" data-order_id="{{item.order_id}}" data-edit="order_cancel" wx:if="{{item.is_pay == 1}}">取消订单</text>
+       <text bindtap='cxwl' data-order_id="{{item.order_id}}" wx:if="{{item.is_shouhuo == 1 || item.is_ok == 1}}">查询物流</text>
+
+       <text bindtap="order_edit" data-order_id="{{item.order_id}}" data-edit="affirm_received" wx:if="{{item.is_shouhuo == 1}}">确认收货</text>
+       
+       <text wx:if="{{item.is_fahuo == 1 && nav_id != 102 && (item.team_status_text == '拼团成功' || item.team_status_text == 'null')}}">待发货</text>
+       <text bindtap='show_qrcode' data-is_show='1' data-order_id='{{item.order_id}}' data-add_time='{{item.add_time}}' data-point='{{item.shipping_point}}' wx:if="{{item.is_fahuo == 1 && item.shipping_point && (item.team_status_text == '拼团成功' || item.team_status_text == 'null')}}">核销二维码</text>
+       <text wx:if="{{item.is_ok == 1}}">已完成</text>
+       <text wx:if="{{item.order_status2 == 2}}">已取消</text>
+      </view>
+     </view>
+    </view> 
+   </view> 
+   
+  </view>
+</view>
+
+</block>
+
+<view wx:if="{{order_list.length <= 0}}" class="nothing">
+  <image src='/static/images/icon/no_data.png'></image>
+  <text>您还没有此类订单哦</text>
+</view>
+
+
+<view wx:if="{{show_qrcode == 1}}" class="qrcode_bg"></view>
+<view wx:if="{{show_qrcode == 1}}" bindtap='show_qrcode' data-is_show='0' class='qrcode'>
+  <text class='texth3'>请出示二维码给核销员</text>
+  <view>
+    <image class='qrcode_img' style='display: block;' src='http://qr.liantu.com/api.php?w=380&text=http://lht.she985.com/hexiao.php?order_id={{point_order_id}}'></image>
+  </view>
+  <text class='texth6'>下单时间：{{point_add_time}}</text>
+  <text class='texth6'>取货地址：{{point}}</text>
+</view>
+
+<view wx:if="{{show_wl_view == 1}}" class='wl_view_zhezhao'></view>
+<scroll-view scroll-y='true' class='wl_view' wx:if="{{show_wl_view == 1}}">
+  <view bindtap='wl_view_close' class='wl_view_close'>X</view>
+
+    <view class='wl_view_tile'>物流信息({{shipping_name}})</view>
+    <view class='wl_view_no'>运单号:{{invoice_no}}</view>
+    <view class='wl_body'>
+
+      <block wx:for="{{wl_array}}" wx:key="wl_array">
+        <view class="wl_one {{index == 0 ? 'color_red':''}}">
+          <view class='yuan_left'>●</view>
+          <view class='wl_right'>
+            <text class='wl_time'>{{item.datetime}}</text>
+            <view class='wl_text'>{{item.remark}}</view>
+          </view>
+        </view>
+      </block>
+
+    </view>
+
+</scroll-view>

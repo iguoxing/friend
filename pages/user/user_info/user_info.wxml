@@ -1,0 +1,60 @@
+<!--pages/user/user_info/user_info.wxml-->
+<view id="tis" class="tis" style="{{tisshow}}">
+  {{tis}}
+</view>
+
+<view style="{{load_style}}" class="loadimg">
+    <image src="/static/images/icon/loader.gif"></image>
+    <text>正在处理您的请求...</text>
+</view>
+
+<view class="info_menu">
+    <view class="border_h3"></view>
+
+    <view bindtap="change_headimg" class="menu_headimg">
+        <text class="menu_text">头像</text>
+        <image src="{{user_info.headimg}}"></image>
+    </view>
+
+    <view bindtap="edit_user_name" class="menu">
+        <text class="menu_text">昵称</text>
+        <text style="{{edit_user_name_style}}" class="menu_value">{{user_info.wx_name}}</text>
+        <input class="menu_value2" bindblur="updata_user_name" style="{{edit_user_name_style2}}" value="{{user_info.wx_name}}" />
+    </view>
+
+    <view class="menu">
+        <text class="menu_text">账户名</text>
+        <text class="menu_value">{{user_info.user_name}}</text>
+    </view>
+
+    <navigator url="/pages/user/bind_mobile/bind_mobile?id=0">
+    <view class="menu" style="border:none;">
+        <text class="menu_text">绑定手机</text>
+        <text class="menu_value">{{user_info.mobile_phone}}</text>
+    </view>
+    </navigator>
+
+    <view class="border_h3"></view>
+
+    <view class="menu" style="border:none;">
+        <text class="menu_text">性别</text>
+        <picker class="menu_value" bindchange="change_sex" value="{{user_info.sex}}" range="{{sex_array}}">
+            <view class="picker">
+            {{sex_array[user_info.sex]}}
+            </view>
+        </picker>
+    </view>
+
+    <view class="menu" style="border:none;">
+        <text class="menu_text">生日</text>
+        <picker mode="date" class="menu_value" value="{{user_info.birthday}}" bindchange="change_birthday">
+        {{user_info.birthday}}
+        </picker>
+    </view>
+
+    <view class="border_h3"></view>
+
+    <button bindtap="clear_Storage" type="warn" class="botton" plain="true">清除小程序缓存</button>
+
+
+</view>

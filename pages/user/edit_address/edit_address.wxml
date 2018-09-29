@@ -1,0 +1,90 @@
+<form bindsubmit="save_address">
+
+    <view class="addressmone">
+
+        <view class="ul">
+            <view class="title">
+                识别码
+                <text class="red">*</text>
+            </view>
+            <view class="cont">
+                <input value="{{user_address.consignee}}" name="consignee" placeholder="请填写您的老友记识别码"  type="text"
+                       class="continput"></input>
+            </view>
+        </view>
+
+        <view class="ul">
+            <view class="title">
+                微信号<text class="red">*</text>
+            </view>
+            <view class="cont">
+                <input value="{{user_address.mobile}}" name="mobile" placeholder="请填写您的微信号" type="text"
+                       class="continput"  ></input>
+            </view>
+        </view>
+
+        <view class="ul">
+            <view class="title">
+                区域
+                <text class="red">*</text>
+            </view>
+            <view class="cont">
+                <picker mode='selector' class="continput2" bindchange="changepronince" value="{{provinceindex}}"
+                        range="{{province_list}}">
+                    <view class="picker">
+                        <text wx:if="{{is_pronince}}" class="selector_text">请选择省</text>
+                        {{province_list[provinceindex]}}
+                    </view>
+                </picker>
+                <picker mode='selector' class="continput2" bindchange="changecity" value="{{cityindex}}"
+                        range="{{city_list}}">
+                    <view class="picker">
+                        <text wx:if="{{is_city}}" class="selector_text">请选择市</text>
+                        {{city_list[cityindex]}}
+                    </view>
+                </picker>
+                <picker mode='selector' class="continput2" bindchange="changedistrict" value="{{districtindex}}"
+                        range="{{district_list}}">
+                    <view class="picker">
+                        <text wx:if="{{is_district}}" class="selector_text">请选择区</text>
+                        {{district_list[districtindex]}}
+                    </view>
+                </picker>
+            </view>
+        </view>
+
+        <view class="ul">
+            <view class="title">
+                地址
+                <text class="red">*</text>
+            </view>
+            <view class="cont">
+                <input value="{{user_address.address}}" name="address" type="text" class="continput"></input>
+            </view>
+        </view>
+
+        <view class="ul">
+            <view class="title">
+                邮 编
+            </view>
+            <view class="cont">
+                <input value="{{user_address.zipcode}}" name="zipcode" type="text" class="continput"></input>
+            </view>
+        </view>
+
+        <view class="ul">
+            <view class="title">
+                邮 箱
+            </view>
+            <view class="cont">
+                <input value="{{user_address.email}}" name="email" type="text" class="continput"></input>
+            </view>
+        </view>
+
+
+    </view>
+    <button type="warn" form-type="submit" loading="{{loading}}" class="save_button">{{button_text}}</button>
+
+</form>
+
+<view class="err_tis" style="{{err_tis_style}}">{{err_tis}}</view>

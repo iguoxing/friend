@@ -1,0 +1,20 @@
+<!--pages/category/category.wxml-->
+<scroll-view scroll-y="true" style="height: {{scrollHeight}}px;" bindscrolltolower="loadMore">
+  <view class="goods_list">
+    <block wx:for="{{goods_list}}" wx:key="goods_list">
+      <navigator url="/pages/article_info/article_info?article_id={{item.article_id}}">
+        <view class="article_one">
+          <view class="article_body">
+            <text>{{item.title}}</text>
+            <image src="/static/images/right_arrow.png"></image>
+          </view>
+        </view>
+      </navigator>
+    </block>
+  </view>
+
+  <view class="footer">
+    {{footer_text}}
+  </view>
+</scroll-view>
+
