@@ -72,36 +72,39 @@ Page({
     },
     cxwl: function (e) {
         var that = this
-        console.log(e.currentTarget.dataset.order_id);
+        // console.log(e.currentTarget.dataset.order_id);
+        wx.navigateTo({
+          url: '/pages/user/order_list/express_info?invoice_no=' + e.target.dataset.invoice_no
+        })
 
         // 发送请求查询物流
-        core.requestApi(app.globalData.shopApiUrl, {
-            act: 'juhe_wuliu',
-            order_id: e.currentTarget.dataset.order_id
-        }, function (res) {
-            if (res.data.err == 0) {
-                // 弹出物流查询结果窗口
-                that.setData({
-                    show_wl_view: 1,
-                    wl_array: res.data.list,
-                    shipping_name: res.data.shipping_name,
-                    invoice_no: res.data.invoice_no
-                })
-            }
-            else {
-                wx.showModal({
-                    title: '提示',
-                    content: res.data.msg,
-                    showCancel: false,
-                    success: function (res) {
-                        if (res.confirm) {
-                            console.log('用户点击确定')
-                        }
-                    }
-                })
-            }
+        // core.requestApi(app.globalData.shopApiUrl, {
+        //     act: 'juhe_wuliu',
+        //     order_id: e.currentTarget.dataset.order_id
+        // }, function (res) {
+        //     if (res.data.err == 0) {
+        //         // 弹出物流查询结果窗口
+        //         that.setData({
+        //             show_wl_view: 1,
+        //             wl_array: res.data.list,
+        //             shipping_name: res.data.shipping_name,
+        //             invoice_no: res.data.invoice_no
+        //         })
+        //     }
+        //     else {
+        //         wx.showModal({
+        //             title: '提示',
+        //             content: res.data.msg,
+        //             showCancel: false,
+        //             success: function (res) {
+        //                 if (res.confirm) {
+        //                     console.log('用户点击确定')
+        //                 }
+        //             }
+        //         })
+        //     }
 
-        });
+        // });
 
     },
     load_list: function () {

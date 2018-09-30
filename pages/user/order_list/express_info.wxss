@@ -1,0 +1,5 @@
+
+.info-img{
+  width: 600rpx;
+  height: 600rpx;
+}

@@ -46,7 +46,7 @@
        <text wx:if="{{item.team_status_text != 'null'}}">{{item.team_status_text}}</text>
        <text bindtap="order_edit" data-order_id="{{item.order_id}}" data-edit="order_pay" wx:if="{{item.is_pay == 1}}">微信支付</text>
        <text bindtap="order_edit" data-order_id="{{item.order_id}}" data-edit="order_cancel" wx:if="{{item.is_pay == 1}}">取消订单</text>
-       <text bindtap='cxwl' data-order_id="{{item.order_id}}" wx:if="{{item.is_shouhuo == 1 || item.is_ok == 1}}">查询物流</text>
+       <text bindtap='cxwl' data-order_id="{{item.order_id}}" wx:if="{{item.invoice_no&&(item.is_shouhuo == 1 || item.is_ok == 1)}}" data-invoice_no="{{item.invoice_no}}">查询物流</text>
 
        <text bindtap="order_edit" data-order_id="{{item.order_id}}" data-edit="affirm_received" wx:if="{{item.is_shouhuo == 1}}">确认收货</text>
        

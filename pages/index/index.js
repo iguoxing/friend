@@ -115,6 +115,9 @@ Page({
                     miao_goods: res.data.miao_goods,
                     buying_goods: res.data.buying_list
                 });
+                // that.setData({
+                //   buying_goods: [that.data.buying_goods[0]]
+                // })
                 t&&clearTimeout(t);
                 t_buyting && clearTimeout(t_buyting);
                 that.miao_djs();

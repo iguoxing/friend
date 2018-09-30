@@ -20,6 +20,7 @@
     "pages/goods/goods",
     "pages/search/search",
     "pages/user/order_list/order_list",
+    "pages/user/order_list/express_info",
     "pages/user/collection_list/collection_list",
     "pages/user/comment_list/comment_list",
     "pages/user/order_comment/order_comment",

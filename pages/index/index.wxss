@@ -272,6 +272,8 @@ page{
   position: relative;
   margin-left: 1%;
 }
+
+.list_B.all{width: 98%;}
 .good_list_images{
   width: 100%;
 }
