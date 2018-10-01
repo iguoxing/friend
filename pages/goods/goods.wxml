@@ -102,7 +102,11 @@
         </button>
 
         <block wx:if="{{goods_info.is_team == 1 && flow_type == 'none' && goods_info.is_miao == 0}}">
-            <view bindtap="is_show_pre_fun" data-flow_type='tuan' class="attr_to_caty2" type="warn">
+            <view wx:if="{{group_type=='buying'}}" class="attr_to_caty2 buying" type="warn">
+                <text>￥{{goods_info.team_price}}元/件</text>
+                <text>{{goods_info.team_num}}人团</text>
+            </view>
+            <view wx:if="{{group_type!='buying'}}" bindtap="is_show_pre_fun" data-flow_type='tuan' class="attr_to_caty2" type="warn">
                 <text>￥{{goods_info.team_price}}元/件</text>
                 <text>{{goods_info.team_num}}人团</text>
             </view>

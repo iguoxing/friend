@@ -55,11 +55,10 @@ Page({
         is_show_back_top: 0,
         flow_type: 'none',
         suppliers: 0,
-        goods_team_order: []
+        goods_team_order: [],
     },
     onLoad: function (query) {
         goods_id = query.goods_id;
-
         app.weixin_login(0);
 
         var that = this;
@@ -108,6 +107,13 @@ Page({
                 goods_team_order: res.data.goods_team_order,
                 goods_team_order_length: res.data.goods_team_order_length
             })
+
+            if (query.type) {
+              that.setData({
+                group_type:'buying'
+              })
+            }
+            console.info(that.data.group_type)
 
             that.miao_djs();
             that.miao_djs2();

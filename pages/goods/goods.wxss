@@ -264,6 +264,9 @@
   padding-top: 16.25rpx;
   background: #fd537b !important;
 }
+.attr_to_caty2.buying{
+  background:#ededed!important;
+}
 .attr_to_caty2 text{
   line-height: 35rpx;
   font-size: 28rpx;
