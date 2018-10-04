@@ -113,7 +113,7 @@ Page({
                 group_type:'buying'
               })
             }
-            console.info(that.data.group_type)
+            // console.info(that.data.group_type)
 
             that.miao_djs();
             that.miao_djs2();

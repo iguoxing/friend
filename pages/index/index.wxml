@@ -102,7 +102,7 @@
   </block>
   <block wx:for="{{buying_goods}}" wx:key="buying_goods" wx:if="{{buying_goods.length%2==0}}">
     <view class='list_B'>
-      <navigator class='list-nav' url='/pages/goods/goods?goods_id={{item.goods_info[0].goods_id}}'>
+      <navigator class='list-nav' url="/pages/goods/goods?goods_id={{item.goods_info[0].goods_id}}&type='buying'">
         <image mode='widthFix' class='good_list_images' src='{{item.goods_info[0].goods_thumb}}'></image>
         <view class='gmt_end_time_f'>
           <view class='gmt_end_time'>{{item.s_miao_text}}</view>
@@ -116,9 +116,9 @@
       </view> 
     </view>
   </block>
-  <block wx:for="{{buying_goods}}" wx:key="buying_goods" wx:if="{{buying_goods.length%2==1}}">
+  <block wx:for="{{buying_goods}}" wx:key="buying_goods" wx:if="{{buying_goods.length>1&&buying_goods.length%2==1}}">
     <view class='list_B' wx:if="{{index+1<buying_goods.length}}">
-      <navigator class='list-nav' url='/pages/goods/goods?goods_id={{item.goods_info[0].goods_id}}'>
+      <navigator class='list-nav' url="/pages/goods/goods?goods_id={{item.goods_info[0].goods_id}}&type='buying'">
         <image mode='widthFix' class='good_list_images' src='{{item.goods_info[0].goods_thumb}}'></image>
         <view class='gmt_end_time_f'>
           <view class='gmt_end_time'>{{item.s_miao_text}}</view>

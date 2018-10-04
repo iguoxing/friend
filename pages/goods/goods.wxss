@@ -663,10 +663,10 @@
   float: right;
   text-align: right;
   background: #fe5378;
-  height: 50rpx;
+  height: 55rpx;
   padding-left: 20rpx;
   padding-right: 20rpx;
   font-size: 28rpx;
   color: #fff;
-  line-height: 50rpx;
+  line-height: 55rpx;
 }
