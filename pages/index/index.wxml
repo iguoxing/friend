@@ -83,7 +83,7 @@
 </view>
 
 <view class='good_list'>
-<!-- 只有一个拼团 -->
+  <!-- 只有一个拼团 -->
   <block wx:for="{{buying_goods}}" wx:key="buying_goods" wx:if="{{buying_goods.length==1}}">
     <view class='list_B all'>
       <navigator class='list-nav' url="/pages/goods/goods?goods_id={{item.goods_info[0].goods_id}}&type='buying'">
@@ -91,7 +91,7 @@
         <view class='gmt_end_time_f'>
           <view class='gmt_end_time'>{{item.s_miao_text}}</view>
         </view>
-        <text class='user-num' wx:if="item.differ_num">缺{{item.differ_num}}人</text>
+        <text class='user-num' wx:if="item.differ_num">还差{{item.differ_num}}人</text>
       </navigator>
       <text class="tit two">{{item.goods_info[0].goods_name}}</text>
       <text class="price">¥<text class="shop_price">{{item.goods_info[0].team_price}}</text></text>
@@ -107,7 +107,7 @@
         <view class='gmt_end_time_f'>
           <view class='gmt_end_time'>{{item.s_miao_text}}</view>
         </view>
-        <text class='user-num' wx:if="item.differ_num">缺{{item.differ_num}}人</text>
+        <text class='user-num' wx:if="item.differ_num">还差{{item.differ_num}}人</text>
       </navigator>
       <text class="tit two">{{item.goods_info[0].goods_name}}</text>
       <text class="price">¥<text class="shop_price">{{item.goods_info[0].team_price}}</text></text>
@@ -123,7 +123,7 @@
         <view class='gmt_end_time_f'>
           <view class='gmt_end_time'>{{item.s_miao_text}}</view>
         </view>
-        <text class='user-num' wx:if="item.differ_num">缺{{item.differ_num}}人</text>
+        <text class='user-num' wx:if="item.differ_num">{{item.differ_num}}人</text>
       </navigator>
       <text class="tit two">{{item.goods_info[0].goods_name}}</text>
       <text class="price">¥<text class="shop_price">{{item.goods_info[0].team_price}}</text></text>
@@ -134,35 +134,56 @@
     </view>
   </block>
 </view>
-
+<view class='mod_tit' wx:if="{{buying_goods.length>0}}">
+  <view class="line"></view>
+  <text class='mod_h4'>精品推荐</text>
+</view>
 <view class='tuan_list'>
-
-  <block wx:for="{{best_list}}" wx:key="best_list">
-  <view class='tuan_g'>
-
-    <view class='tuan_g_img'>
-      <navigator url='/pages/goods/goods?goods_id={{item.goods_id}}'>
-        <image mode="widthFix" src='{{item.little_img}}'></image>
+<view class='good_list'>
+  <!-- 只有一个拼团 -->
+  <block wx:for="{{best_list}}" wx:key="best_list" wx:if="{{best_list.length==1}}">
+    <view class='list_B all'>
+      <navigator class='list-nav' url="/pages/goods/goods?goods_id={{item.goods_id}}">
+        <image mode='widthFix' class='good_list_images' src='{{item.little_img}}'></image>
+       
       </navigator>
-    </view>
-
-    <view class="tuan_g_info">
-      <text class="tuan_g_name">{{item.goods_name}}</text>
-    </view>
-
-    <view class="tuan_g_core">
-      <image class='tuan_g_core_image' src='/static/images/icon/people.png'></image>
+      <text class="tit two">{{item.goods_name}}</text>
       <text class="tuan_g_num">{{item.team_num}}人团</text>
-      <view class="tuan_fgx"></view>
-      <view class="tuan_g_price"><text class='tuan_g_price_fuhao'>¥</text>{{item.team_price}}</view>
-      <text class="tuan_g_mprice"><text>￥</text>{{item.market_price}}</text>
+      <text class="tuan_g_price">¥<text class="shop_price">{{item.team_price}}</text></text>
       <navigator class="tuan_g_btn" url='/pages/goods/goods?goods_id={{item.goods_id}}'>
-        <view>去开团 ></view>
+        <view>去开团</view>
       </navigator>
     </view>
-
-  </view>
   </block>
+  <block wx:for="{{best_list}}" wx:key="best_list" wx:if="{{best_list.length%2==0}}">
+    <view class='list_B'>
+      <navigator class='list-nav' url="/pages/goods/goods?goods_id={{item.goods_id}}">
+        <image mode='widthFix' class='good_list_images' src='{{item.goods_thumb}}'></image>
+        
+      </navigator>
+      <text class="tit two">{{item.goods_name}}</text>
+      <text class="tuan_g_num">{{item.team_num}}人团</text>
+      <text class="tuan_g_price">¥<text class="shop_price">{{item.team_price}}</text></text>
+      <navigator class="tuan_g_btn" url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <view>去开团</view>
+      </navigator>
+    </view>
+  </block>
+  <block wx:for="{{best_list}}" wx:key="best_list" wx:if="{{best_list.length>1&&best_list.length%2==1}}">
+    <view class='list_B' wx:if="{{index+1<best_list.length}}">
+      <navigator class='list-nav' url="/pages/goods/goods?goods_id={{item.goods_id}}">
+        <image mode='widthFix' class='good_list_images' src='{{item.goods_thumb}}'></image>
+        
+      </navigator>
+      <text class="tit two">{{item.goods_name}}</text>
+      <text class="tuan_g_num">{{item.team_num}}人团</text>
+      <text class="tuan_g_price">¥<text class="shop_price">{{item.team_price}}</text></text>
+      <navigator class="tuan_g_btn" url='/pages/goods/goods?goods_id={{item.goods_id}}'>
+        <view>去开团</view>
+      </navigator>
+    </view>
+  </block>
+</view>
 
 </view>
 

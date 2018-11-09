@@ -124,7 +124,7 @@
 
 .num_button{
   height: 52rpx;
-  font-size: 20pt;
+  font-size: 12pt;
   width: 52rpx;
   background: url('http://www.hengda365.com/xcx/images/shop-cart.png') no-repeat 4px -55px;
   background-size: 60px;
@@ -151,7 +151,7 @@
 
 .num_button2{
   height: 52rpx;
-  font-size: 20pt;
+  font-size: 12pt;
   width: 52rpx;
   background: url('http://www.hengda365.com/xcx/images/shop-cart.png') no-repeat -26px -27px;
   background-size: 60px;

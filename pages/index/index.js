@@ -57,6 +57,7 @@ Page({
         // 读取缓存，如果存在缓存，不定位
         var that = this
         clearTimeout(t);
+        clearTimeout(t_buyting);
         try {
             var select_address = wx.getStorageSync('select_address')
             if (select_address) {
@@ -182,6 +183,10 @@ Page({
         this.setData({
             searchinput: e.detail.value
         })
-    }
+    },
+    onHide: function () {
+      clearTimeout(t);
+      clearTimeout(t_buyting);
+    },
 });
 

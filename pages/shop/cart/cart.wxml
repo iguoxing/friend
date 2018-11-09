@@ -32,13 +32,13 @@
         <view wx:else class="num">
           <view class="xm-input-number">
             <text class="number_text">购买数量：</text>
-            <view data-cart_id="{{item.rec_id}}" bindtap="num_jian" class="num_button"></view>
+            <view data-cart_id="{{item.rec_id}}" bindtap="num_jian" class="num_button">-</view>
             
             <view class="num_input">
             <input data-cart_id="{{item.rec_id}}" value="{{item.goods_number}}" bindchange="num_change" name="num"></input>
             </view>
 
-            <view data-cart_id="{{item.rec_id}}" bindtap="num_jia" class="num_button2"></view>
+            <view data-cart_id="{{item.rec_id}}" bindtap="num_jia" class="num_button2">+</view>
 
             <view data-cart_id="{{item.rec_id}}" bindtap="del_goods" class="del"></view>
           </view>

@@ -57,29 +57,18 @@
     "selectedColor":"#E9597A",
     "backgroundColor":"#fff",
     "color":"#000",
-    "list": [{
+    "list": [
+      {
       "pagePath": "pages/index/index",
       "text": "首页",
       "iconPath":"/static/images/icon/home-not.png",
       "selectedIconPath":"/static/images/icon/home-select.png"
-    }, {
-      "pagePath": "pages/category/category",
-      "text": "商城单品",
-      "iconPath":"/static/images/icon/weiba-not.png",
-      "selectedIconPath":"/static/images/icon/weiba-select.png"
-    }
-    , {
-      "pagePath": "pages/stores/stores",
-      "text": "店铺街",
-      "iconPath":"/static/images/icon/stores_select_noe.png",
-      "selectedIconPath":"/static/images/icon/stores_select.png"
-    }
-    ,
+    }, 
     {
-      "pagePath": "pages/square/square",
-      "text": "广场",
-      "iconPath": "/static/images/icon/article_not.png",
-      "selectedIconPath": "/static/images/icon/article_select.png"
+      "pagePath": "pages/shop/cart/cart",
+      "text": "购物车",
+      "iconPath":"/static/images/icon/cart_icon.png",
+      "selectedIconPath":"/static/images/icon/cart-car.png"
     }
     , {
       "pagePath": "pages/user/user",

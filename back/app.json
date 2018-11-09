@@ -1,0 +1,100 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/user/user",
+    "pages/shop/shop",
+    "pages/message/message",
+    "pages/user/order_detail/order_detail",
+    "pages/user/login/login",
+    "pages/user/wallet/wallet",
+    "pages/user/user_info/user_info",
+    "pages/user/get_pass/get_pass",
+    "pages/user/bind_mobile/bind_mobile",
+    "pages/user/account_deposit/account_deposit",
+    "pages/user/account_withdrawal/account_withdrawal",
+    "pages/user/message_list/message_list",
+    "pages/user/register/register",
+    "pages/category/category",
+    "pages/category_info/category_info",
+    "pages/shop/cart/cart",
+    "pages/goods/goods",
+    "pages/search/search",
+    "pages/user/order_list/order_list",
+    "pages/user/order_list/express_info",
+    "pages/user/collection_list/collection_list",
+    "pages/user/comment_list/comment_list",
+    "pages/user/order_comment/order_comment",
+    "pages/user/address/address",
+    "pages/user/edit_address/edit_address",
+    "pages/shop/flow/flow",
+    "pages/shop/done/done",
+    "pages/user/affiliate/affiliate",
+    "pages/article_info/article_info",
+    "pages/article/article",
+    "pages/select_address/select_address",
+    "pages/brand_info/brand_info",
+    "pages/tuan/tuan",
+    "pages/share_tuan/share_tuan",
+    "pages/share_tuan2/share_tuan",
+    "pages/square/square",
+    "pages/user/my_tuan/my_tuan",
+    "pages/user/my_gc/my_gc",
+    "pages/tuan_rule/tuan_rule",
+    "pages/stores/stores",
+    "pages/store_info/store_info",
+    "pages/user_login/user_login",
+    "pages/spike/spike"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "商城",
+    "navigationBarTextStyle":"black"
+  }
+  ,
+  "tabBar": {
+    "borderStyle":"white",
+    "selectedColor":"#E9597A",
+    "backgroundColor":"#fff",
+    "color":"#000",
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"/static/images/icon/home-not.png",
+      "selectedIconPath":"/static/images/icon/home-select.png"
+    }, 
+    {
+      "pagePath": "pages/category/category",
+      "text": "商城单品",
+      "iconPath":"/static/images/icon/weiba-not.png",
+      "selectedIconPath":"/static/images/icon/weiba-select.png"
+    },
+    {
+      "pagePath": "pages/shop/cart/cart",
+      "text": "购物车",
+      "iconPath":"/static/images/icon/cart_icon.png",
+      "selectedIconPath":"/static/images/icon/cart-car.png"
+    }
+    ,
+    {
+      "pagePath": "pages/square/square",
+      "text": "广场",
+      "iconPath": "/static/images/icon/article_not.png",
+      "selectedIconPath": "/static/images/icon/article_select.png"
+    }
+    , {
+      "pagePath": "pages/user/user",
+      "text": "个人中心",
+      "iconPath":"/static/images/icon/user-not.png",
+      "selectedIconPath":"/static/images/icon/user-select.png"
+    }
+    ]
+  }
+  ,
+  "networkTimeout":{
+    "request":10000,
+    "downloadFile":10000
+  },
+  "debug":false
+}

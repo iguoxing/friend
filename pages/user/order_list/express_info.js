@@ -10,7 +10,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.info(213)
     if(options&&options.invoice_no){
       this.setData({
         url: 'https://www.happyht.com/html/orderFollow.html?expressNo=' + 'LHT' + options.invoice_no + 'US'
